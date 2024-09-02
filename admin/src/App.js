@@ -1,7 +1,8 @@
-
 function App() {
   return (
-    <h1>Hello from admin</h1>
+   <>
+   <h1>Hello From Admin</h1>
+   </>
   );
 }
 
