@@ -8,7 +8,6 @@ import "./styles.css"
 function App() {
   return (
     <>
-   
     <Header/>
     <Nav/>
      <Carousel/>
