@@ -1,0 +1,162 @@
+body{
+    background-color:white!important;
+  }
+  li{
+      list-style-type: none;
+  }
+  .bar{
+    height: 70px;
+    width: 100%;
+    background-color: rgb(129, 8, 8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 10px;
+      font-weight: bold;
+      color: white;
+      margin-bottom: 20px;
+  }
+  #app {
+      height: 100%;
+    }
+    html,
+    body {
+      position: relative;
+      height: 100%;
+      
+    }
+    
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .swiper {
+      margin-top: 5px;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+    
+      /* Center slide text vertically */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* card */
+    #app {
+      height: 100%;
+    }
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+    
+    body {
+      background: #eee;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+    
+      /* Center slide text vertically */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+   
+    .img2{ 
+   
+      clip-path: circle(32.4% at 50% 50%);
+      
+      }
+  
+      .footer2{
+        height:300px;
+        width: 100%;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        font-family: sans-serif;
+    }
+    li{
+      list-style-type: none;
+  }
+    .Follow{
+        margin-top: 40px;
+        height: 300px;
+        margin-left: 70px;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        gap:10px
+    
+    }
+    .socialicons{
+        display: flex;
+        gap: 10px;
+        margin-top: 5px;
+    }
+    .Follow{
+        
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+    .QUICK{
+        height: 300px;
+        width: 300px;
+    }
+    .SUPPORT{
+        height: 300px;
+        width: 300px;
+    }
+    .POLICY{
+        height: 300px;
+        width: 300px;
+    }
+    .information2{
+        align-items: center;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
