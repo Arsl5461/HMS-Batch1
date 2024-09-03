@@ -5,18 +5,28 @@ import { FaFacebookF } from "react-icons/fa";
 
 
 const Login = () => {
-    const [email, setEmail] = useState('Login');
-    const [password, setPassword] = useState('Login');
+    const [formData,setFormData]=useState({
+        email:"",
+        password:""
+    })
+    // const newData={...formData,name:"Asdasd"}
+    // console.log(newData)
+    const onChange=(e)=>{
+setFormData({...formData,[e.target.name]:e.target.value})
+    }
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Email:', email);
-        console.log('Password:', password);
+e.preventDefault();
+if(formData.email === "admin@gmail.com" && formData.password==="admin123"){
+    alert("You logged in")
+}
+else{
+    alert("Password is wrong")
+}
     };
     return (
         <div>
             <div className="background">
-
                 <div class="logo">
                     <img src="https://user.mockplus.com/enUS/sign-logo2.png" width="130px" alt="" />
                 </div>
@@ -34,8 +44,9 @@ const Login = () => {
                                 <input
                                     type="email"
                                     id="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={formData.email}
+                                    onChange={onChange}
+                                    name="email"
                                     required
                                 />
                             </div>
@@ -44,8 +55,9 @@ const Login = () => {
                                 <input
                                     type="password"
                                     id="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={formData.password}
+                                    name='password'
+                                    onChange={onChange}
                                     required
                                 />
                             </div>
