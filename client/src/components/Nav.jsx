@@ -9,7 +9,7 @@ const Nav = () => {
         <li class="grand1">Careers
         </li>
         <li class="grand2">Book Appointment</li>
-        <li class="grand3">Women Apparels</li>
+        
        
     </ul>
     </div>
