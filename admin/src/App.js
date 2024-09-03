@@ -1,7 +1,14 @@
+import './App.css';
+import Login from "./component/Login";
+
 function App() {
   return (
    <>
-   <h1>Hello From Admin</h1>
+    <Login/>
+
+   
+   {/* <h1>Hello From Admin</h1>
+   <h1>Hello From Admin sana</h1> */}
    </>
   );
 }
