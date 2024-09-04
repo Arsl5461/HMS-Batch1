@@ -19,7 +19,7 @@ const header = () => {
             <a class="nav-link text-dark fw-bold fs-6 text" href="#" >About us</a>
           </li>
           <li class="nav-item"> 
-            <a class="nav-link text-darke fw-bold fs-6 text" href="#" > Specialities</a>
+            <a class="nav-link text-darke fw-bold fs-6 text" href="#" > Contact Us</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark fw-bold fs-6 text" href="#" > Health Centre</a>
