@@ -1,8 +1,8 @@
 import './App.css';
 import Login from "./component/Login";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Route,Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Doctors from './pages/doctors/Doctors';
 import Contact from './pages/contact/Contact';
@@ -11,23 +11,22 @@ import Timing from './pages/timing/Timing';
 import SideBar from './component/SideBar';
 
 function App() {
+  const location = useLocation();
+  const showSidebar = location.pathname !== '/';
+
   return (
-   <>
-   <SideBar/>
-   <Routes>
-    <Route path='/' element={<Login/>}></Route>
-    <Route path='/dashboard' element={<Dashboard/>}></Route>
-    <Route path='/doctors' element={<Doctors/>}></Route>
-    <Route path='/timing' element={<Timing/>}></Route>
-    <Route path='/services' element={<Services/>}></Route>
-    <Route path='/contact' element={<Contact/>}></Route>
-
-    </Routes>
-
-   <ToastContainer/>
-   {/* <h1>Hello From Admin</h1>
-   <h1>Hello From Admin sana</h1> */}
-   </>
+    <>
+      {showSidebar && <SideBar />}
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/doctors' element={<Doctors />} />
+        <Route path='/timing' element={<Timing />} />
+        <Route path='/services' element={<Services />} />
+        <Route path='/contact' element={<Contact />} />
+      </Routes>
+      <ToastContainer />
+    </>
   );
 }
 
