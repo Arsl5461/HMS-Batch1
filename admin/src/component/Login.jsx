@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
@@ -41,45 +40,11 @@ const Login = () => {
 
     return (
         <div>
-        
-            <nav className="navbar">
-                <ul className="navbar-menu">
-                    <li className="navbar-item">
-                        <img src="https://www.shifaam.com/themes/default/guest/img/logo.jpg" alt="" />
-                    </li>
-                </ul>
-                
-                <ul className="navbar-menu">
-                    <li className="navbar-item">Doctors Book <br /> an Appoinmet </li>
-                </ul>
-                <ul className="navbar-menu">
-                    <li className="navbar-item">Shifaam Paeds <br /> Neurology & <br /> Wellness Place</li>
-                </ul>
-                <ul className="navbar-menu">
-                    <li className="navbar-item">Lab Tests Book <br /> Tests Online</li>
-                </ul>
-                <ul className="navbar-menu">
-                    <li className="navbar-item">Pharmacy <br /> Medicines & <br /> Health Products</li>
-                </ul>
-                <ul className="navbar-menu">
-                    <li className="navbar-item">Childhood Epilapsy <br /> 021 111 788 999</li>
-                </ul>
-                <ul className="navbar-menu">
-                    <li className="navbar-item">RHD Remote <br /> Health Desk</li>
-                </ul>
-                <ul className="navbar-menu">
-               
-                    <li className="navbar-item"> 
-                    <FaRegUserCircle style={{fontSize: '20'}}/> <br />
-                     Login | Signup </li>
-                </ul>
-            </nav>
-
             <div className="backgroundtwo">
                 
 
                 <div className="login">
-                <p class="account">Patient Login</p>
+                <p class="account">Admin Login</p>
                     <form onSubmit={handleSubmit}>
                     <div className="form-group">
                             <label htmlFor="phone-number">Phone Number:</label>
