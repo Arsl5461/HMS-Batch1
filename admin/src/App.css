@@ -171,17 +171,6 @@
       .sidebar-content a:hover {
           background-color: blue;
       }
-      
-      .main-content {
-          margin-left: 40px; /* Initial margin to accommodate the sidebar */
-          transition: margin-left 0.3s;
-        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoe41DNtgd9Bgf-C4CkDLeyCdejJurzJhJrw&s);height: 650px;width: 2000px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-
-      }
-      
       .sidebar:hover ~ .main-content {
           margin-left: 200px; /* Margin for expanded sidebar */
       }
