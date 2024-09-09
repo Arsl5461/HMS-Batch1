@@ -25,9 +25,9 @@ const ContactUs = () => {
       <p>General Inquiries: info@sihs.org.pk <br /><br /> Complaint Cell: complaintcell@sihs.org.pk</p>
       </div>
     </div>
-    <h2>Drop your Feedback/Suggestions</h2>
-    <div className='map'>
-    <form class="forms">
+    <h2 style={{textAlign:"center"}}>Drop your Feedback/Suggestions</h2>
+    <div className='d-flex justify-content-evenly'>
+    <form class="d-flex flex-column">
       <label>Name</label>
       <input type="text" />
       <label class="space">Email</label>
