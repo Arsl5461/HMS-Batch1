@@ -5,6 +5,7 @@ import Card1 from './Card1';
 import { FaHeadphonesAlt } from "react-icons/fa";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { TbPhoneCall } from "react-icons/tb";
+import "./Doctors.css"
 
 const Doctors = () => {
     return (
