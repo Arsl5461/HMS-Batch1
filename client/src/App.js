@@ -17,13 +17,11 @@ function App() {
     <>
       <Header />
       <Nav />
-      <Carousel />
-      <Doctors/>
-      <Footer />
       <Routes>
       <Route path='/' element={<Home/>}></Route>
         <Route path='/Contact' element={<Contact/>}></Route>
       </Routes>
+      <Footer />
     </>
   );
 }
