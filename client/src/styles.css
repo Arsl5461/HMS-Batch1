@@ -1,3 +1,4 @@
+
 *{
   margin: 0px;
   padding: 0px;
@@ -197,24 +198,304 @@ font-size: 17px;
     
 }
 
-.QUICK{
+body {
+  background-color: white !important;
+}
+
+li {
+  list-style-type: none;
+}
+.bar {
+  height: 70px;
+  width: 100%;
+  background-color: #9b1212;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  margin-top: 10px;
+  font-weight: bold;
+  color: white;
+  font-size: 17px;
+  margin-bottom: 20px;
+}
+
+#app {
+  height: 100%;
+}
+
+html,
+body {
+  position: relative;
+  height: 100%;
+
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  margin-top: 5px;
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* card */
+#app {
+  height: 100%;
+}
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.img2 {
+
+  clip-path: circle(32.4% at 50% 50%);
+
+}
+
+.footer2 {
+  height: 300px;
+  width: 100%;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: sans-serif;
+}
+
+li {
+  list-style-type: none;
+}
+
+.Follow {
+  margin-top: 40px;
+  height: 300px;
+  margin-left: 70px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.socialicons {
+  display: flex;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.Follow {
+
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.QUICK {
   height: 300px;
   width: 300px;
 }
-.SUPPORT{
+
+.SUPPORT {
   height: 300px;
   width: 300px;
 }
-.POLICY{
+
+.POLICY {
+  height: 300px;
+  width: 300px;
+}
+
+.information2 {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.numbers {
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 100px;
+  font-size: 25px;
+  color: Black;
+  margin-bottom: 20px;
+}
+
+.footer2 {
+  height: 300px;
+  width: 100%;
+  background-color: #9b1212;
+  color: #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: sans-serif;
+
+}
+
+.QUICK {
+  height: 300px;
+  width: 300px;
+}
+
+.SUPPORT {
+  height: 300px;
+  width: 300px;
+}
+
+.POLICY {
   height: 300px;
   width: 370px;
 }
-.information2{
+
+.information2 {
   align-items: center;
   width: 100%;
-  
+
   display: flex;
   flex-direction: column;
-  gap:10px;
+  gap: 10px;
   margin-top: 40px;
+}
+.cardz{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.cadz{
+  margin-top: 30px;
+  height: 320px;
+  width: 380px;
+  border-radius: 10px;
+  background-color: #E7F3F4;
+}
+.icn{
+  color: #9b1212;
+  font-size: 60px;
+  text-align: center;
+}
+h1{
+  color: #9b1212;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 40px;
+  margin-top: 10px;
+}
+h2{
+  color: #9b1212;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 20px;
+}
+p{
+  text-align: center;
+  padding-top: 5px;
+  font-size: 16px;
+}
+.forms{
+  display: flex;
+  flex-direction: column;
+  margin-left: 200px;
+}
+.forms label{
+  font-size: 16px;
+}
+input{
+  width: 550px;
+  height: 40px;
+}
+.mess{
+  height: 280px;
+}
+.space{
+  margin-top: 10px;
+}
+button{
+  width: 83px;
+  height: 43px;
+  color: #9b1212;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 3px;
+  margin-top: 15px;
+  margin-bottom: 60px;
+}
+.map{
+  display: flex;
+  margin-top: 30px;
+  gap: 20px;
 }
