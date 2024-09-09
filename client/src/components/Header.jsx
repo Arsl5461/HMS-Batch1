@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const header = () => {
   return (
@@ -13,13 +14,13 @@ const header = () => {
         <span class="navbar-text">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 "  style={{marginLeft: "700px"}}>
           <li class="nav-item">
-            <a class="nav-link active text-dark fw-bold fs-6 text" aria-current="page" to="/">Home</a>
+            <Link class="nav-link active text-dark fw-bold fs-6 text" aria-current="page" to="/">Home</Link>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark fw-bold fs-6 text" href="#" >About us</a>
           </li>
           <li class="nav-item"> 
-            <a class="nav-link text-darke fw-bold fs-6 text" href="#" > Contact Us</a>
+            <Link class="nav-link text-darke fw-bold fs-6 text" to="/Contact" > Contact Us</Link>
           </li>
           <li class="nav-item">
             <a class="nav-link text-dark fw-bold fs-6 text" href="#" > Health Centre</a>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Nav = () => {
   return (
-    <div >
+    <div className='index' >
     <ul class="bar">
         <li class="grand8" id="Summer">Donate Now</li>
         <li class="grand"> Patient Portal</li>
