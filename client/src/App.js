@@ -10,6 +10,7 @@ import { FaHeadphonesAlt } from "react-icons/fa";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { TbPhoneCall } from "react-icons/tb";
 import Footer from './components/Footer';
+import Cards from './components/Cards';
 
 
 function App() {
@@ -25,6 +26,8 @@ function App() {
 </div>
 <Card1/>
 <Card/>
+<h2  style={{textAlign:"center", color:"Black", fontFamily:"sans-serif", marginTop:"5px"  }}><b>Best Doctors​</b></h2>
+<Cards/>
 <h2  style={{textAlign:"center", color:"Black", fontFamily:"sans-serif", marginTop:"5px"  }}><b>Our Departments​</b></h2>
 <div >
 <ul class="numbers">
