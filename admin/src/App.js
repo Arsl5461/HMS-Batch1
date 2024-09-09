@@ -9,6 +9,9 @@ import Contact from './pages/contact/Contact';
 import Services from './pages/services/Services';
 import Timing from './pages/timing/Timing';
 import SideBar from './component/SideBar';
+import Nextpage from './pages/Nextpage';
+
+
 
 function App() {
   return (
@@ -20,13 +23,13 @@ function App() {
     <Route path='/doctors' element={<Doctors/>}></Route>
     <Route path='/timing' element={<Timing/>}></Route>
     <Route path='/services' element={<Services/>}></Route>
+    <Route path='/nextpage' element={<Nextpage/>}> </Route>
     <Route path='/contact' element={<Contact/>}></Route>
-
+    
     </Routes>
 
+
    <ToastContainer/>
-   {/* <h1>Hello From Admin</h1>
-   <h1>Hello From Admin sana</h1> */}
    </>
   );
 }
