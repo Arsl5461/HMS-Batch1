@@ -13,6 +13,9 @@ import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Services from './components/Services';
 import Donate from './pages/Donate';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 function App() {
@@ -26,6 +29,7 @@ function App() {
         <Route path='/Donate' element={<Donate/>}></Route>
       </Routes>
       <Footer />
+      <ToastContainer/>
     </>
   );
 }
