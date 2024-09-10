@@ -602,3 +602,19 @@ hr{
   font-weight: lighter;
   color: black;
 }
+.imges{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+ margin-right: 50px;
+}
+.con{
+  color: #000;
+  font-size: 25px;
+  font-weight: lighter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
+}

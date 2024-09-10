@@ -15,6 +15,7 @@ import Services from './components/Services';
 import Donate from './pages/Donate';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Parent from './components/Parent';
 
 
 
@@ -27,6 +28,7 @@ function App() {
       <Route path='/' element={<Home/>}></Route>
         <Route path='/Contact' element={<Contact/>}></Route>
         <Route path='/Donate' element={<Donate/>}></Route>
+        <Route path='/Parent' element={<Parent/>}></Route>
       </Routes>
       <Footer />
       <ToastContainer/>

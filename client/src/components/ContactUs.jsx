@@ -21,7 +21,6 @@ const onChange=(e)=>{
 }
 const onSubmit=(e)=>{
 e.preventDefault();
-if(formData !== null){
   setFormData({
     name:"",
     email:"",
@@ -32,9 +31,9 @@ if(formData !== null){
   toast.success("Contact Created Successfully!")
 navigate("/")
 }
-}
   return (
     <>
+    
     <img src="https://shalamarhospital.org.pk/wp-content/uploads/2022/05/icu-2-1024x683.jpg" alt="" style={{width:"100%",height:"550px", marginTop:"-20px"}} />
     <h1>Contact Us</h1>
     <div className="cardz">
