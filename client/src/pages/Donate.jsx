@@ -7,6 +7,7 @@ import Carousel from '../components/Carousel'
 const Donate = () => {
   return (
     <>
+    
    <Carousel/>
     <DonateNow/>
     </>
