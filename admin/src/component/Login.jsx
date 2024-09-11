@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-import { FaRegUserCircle } from "react-icons/fa";
+
 
 
 const Login = () => {
@@ -83,7 +83,7 @@ const Login = () => {
                         <button type="submit">Sign in</button>
                         <p className="not-account">Don't have an account? <a href="">Sign up</a></p>
 
-                        <hr />
+                        <hr className='loginhr' />
                         <p className="end">Or sign in with <FcGoogle className="circle" /> <FaFacebookF className="circle" /></p>
                     </form>
                 </div>
