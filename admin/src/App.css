@@ -201,8 +201,8 @@ h2{
 }
 .flex{
   display: flex;
-  gap: 80px;
+  gap: 60px;
   margin-top: 60px;
   justify-content: center;
-  margin-left: 210px;
+  margin-left: 170px;
 }
