@@ -532,9 +532,9 @@ hr{
   color: white;
   
 }
-.card {
+.cardss {
   width: 20vw;
-  height: 60vh;
+  height: 50vh;
   background-color: white;
   border: maroon 2px solid;
   display: flex;
@@ -546,45 +546,14 @@ hr{
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   margin-bottom: 50px;
 }
-
-.card-image {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
 .card-description {
-  margin: 0 auto;
+margin-bottom: 100px;
   text-align: center;
   font-size: 20px;
   color: maroon;
-  margin-bottom: 10px;
+  
 }
 
-.card-button {
-  width: 150px;
-  height: 60px;
-  padding: 15px;
-  background-color: maroon;
-  font-weight: bold;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.card-button:hover {
-  background-color: rgb(14, 209, 183);
-}
-
-.circle-iconic{
-  height: 150px;
-  width: 150px;
-  padding: 10px;
-  border-radius:50% ;
-  border:maroon 4px solid ;
-}
 .don{
   color: #9b1212;
   text-align: center;
