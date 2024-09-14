@@ -1,26 +1,13 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { GiHeartOrgan } from "react-icons/gi";
-import { FaAmbulance } from "react-icons/fa";
-import { GiTestTubes } from "react-icons/gi";
-
 
 const Services = () => {
-const navigate = useNavigate();
-
-const handleButtonClick = () => {
-  navigate ('/nextpage');
-};
-
-
   return (
     <div className='container'>
-          <div className="container">
-          <h1>Our Services</h1>
+     <h1>Our Services</h1>
           <h3>We are Serving Humanity ana Spreading Joy</h3>
-          <hr />
-
-      <div className="container-cards ">
+          <hr/>
+         
+          <div className="container-cards ">
         <div className="cardss">
           
           <h2>Accident & Emergency</h2>
@@ -40,9 +27,9 @@ const handleButtonClick = () => {
         
         </div>
       </div>
-      </div>
-    </div>
+          </div>
+    
   )
 }
 
-export default Services;
+export default Services

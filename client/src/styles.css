@@ -498,6 +498,7 @@ button{
 
 .container{
   margin-top: 30px;
+  height: 75vh;
   background-color: maroon;
   margin-right:50px;
   margin-bottom: 50px;
