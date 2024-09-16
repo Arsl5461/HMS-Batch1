@@ -13,7 +13,7 @@ import './pages/services.css';
 import './component/Login.css';
 import './pages/AddServices.css';
 import AddServices from './pages/services/AddServices';
-
+import Adddoctors from './pages/doctors/Adddoctors';
 
 
 // import '.pages/img.jpg.jpg';
@@ -32,6 +32,7 @@ function App() {
         <Route path='/timing' element={<Timing />} />
         <Route path='/services' element={<Services />} />
         <Route path="/add-service" element={<AddServices/>}></Route>
+        <Route path="/add-doctor" element={<Adddoctors/>}></Route>
         <Route path='/contact' element={<Contact />} />
       </Routes>
       {/* <img.jpg.jpg/> */}
