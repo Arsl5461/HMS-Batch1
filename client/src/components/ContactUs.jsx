@@ -1,10 +1,39 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { FaLocationArrow } from "react-icons/fa";
 import { FaPhoneSquare } from "react-icons/fa";
 import { FaMailBulk } from "react-icons/fa";
+import "./contact.css"
+import {toast} from "react-toastify"
+import { useNavigate } from 'react-router-dom';
+
 const ContactUs = () => {
+  const [formData,setFormData]=useState({
+    name:"",
+    email:"",
+    message:"",
+    country:"",
+    gender:""
+  })
+  const {name,email,message,country,gender}=formData;
+  const navigate=useNavigate()
+const onChange=(e)=>{
+  setFormData({...formData,[e.target.name]:e.target.value})
+}
+const onSubmit=(e)=>{
+e.preventDefault();
+  setFormData({
+    name:"",
+    email:"",
+    message:"",
+    gender:"",
+    country:""
+  })
+  toast.success("Contact Created Successfully!")
+navigate("/")
+}
   return (
     <>
+    
     <img src="https://shalamarhospital.org.pk/wp-content/uploads/2022/05/icu-2-1024x683.jpg" alt="" style={{width:"100%",height:"550px", marginTop:"-20px"}} />
     <h1>Contact Us</h1>
     <div className="cardz">
@@ -27,13 +56,30 @@ const ContactUs = () => {
     </div>
     <h2 style={{textAlign:"center"}}>Drop your Feedback/Suggestions</h2>
     <div className='d-flex justify-content-evenly'>
-    <form class="d-flex flex-column">
+    <form class="d-flex flex-column" onSubmit={onSubmit}>
       <label>Name</label>
-      <input type="text" />
+      <input type="text" name='name' className='input' onChange={onChange} value={name} placeholder='Enter Name' />
       <label class="space">Email</label>
-      <input type="email" />
+      <input type="email" name='email' className='input' onChange={onChange} value={email} placeholder='Enter Email' />
+      <label>Country</label>
+      <select name='country' className='country' onChange={onChange}>
+        <option disabled selected hidden>Select country</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="UK">UK</option>
+        <option value="Canada">Canada</option>
+      </select>
+      <label>Gender:</label>
+      <div className="d-flex w-50 gap-4">
+      <input type="radio" name='gender' onChange={onChange} value="male"/>
+      <label>Male</label>
+      <input type="radio" name='gender' onChange={onChange} value="female"/>
+      <label>Female</label>
+      </div>
+
       <label class="space">Message</label>
-      <textarea class="mess" type="text" />
+      <textarea class="mess" type="text" name='message' value={message} onChange={onChange} />
       <button type='submit'>Submit</button>
     </form>
 

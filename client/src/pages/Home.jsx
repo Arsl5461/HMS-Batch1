@@ -9,12 +9,16 @@ import { FaHeadphonesAlt } from "react-icons/fa";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { TbPhoneCall } from "react-icons/tb";
 import Doctors from '../components/Doctors'
+import Services from '../components/Services'
+
 
 const Home = () => {
   return (
     <>
       <Carousel />
       <Doctors/>
+      <Services/>
+
       </>
   )
 }

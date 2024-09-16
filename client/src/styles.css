@@ -474,10 +474,6 @@ p{
 .forms label{
   font-size: 16px;
 }
-input{
-  width: 550px;
-  height: 40px;
-}
 .mess{
   height: 280px;
 }
@@ -498,4 +494,96 @@ button{
   display: flex;
   margin-top: 30px;
   gap: 20px;
+}
+
+.container{
+  margin-top: 30px;
+  background-color: maroon;
+  margin-right:50px;
+  margin-bottom: 50px;
+}      
+.container-cards{
+display: flex;
+justify-content: space-around;
+margin-right: 50px;
+margin-left: 40px;
+
+
+
+} 
+
+h1{
+  margin-top: 40px;
+  font-size: 3vw;
+  text-align: center;
+  color: white;
+}
+h2{
+  color: maroon;
+}
+h3{
+  font-size: 1.5vw;
+  color: white;
+  text-align: center;
+
+}
+hr{
+  width: 100%;
+  color: white;
+  
+}
+.cardss {
+  width: 20vw;
+  height: 50vh;
+  background-color: white;
+  border: maroon 2px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-bottom: 50px;
+}
+.card-description {
+margin-bottom: 100px;
+  text-align: center;
+  font-size: 20px;
+  color: maroon;
+  
+}
+
+.don{
+  color: #9b1212;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}
+.who{
+  color: black;
+  display: flex;
+  justify-content: start;
+  margin-left: 16%;
+}
+.texture{
+
+  font-weight: lighter;
+  color: black;
+}
+.imges{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+ margin-right: 50px;
+}
+.con{
+  color: #000;
+  font-size: 25px;
+  font-weight: lighter;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
 }
