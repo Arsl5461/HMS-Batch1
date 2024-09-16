@@ -9,6 +9,14 @@ import Contact from './pages/contact/Contact';
 import Services from './pages/services/Services';
 import Timing from './pages/timing/Timing';
 import SideBar from './component/SideBar';
+import './pages/services.css';
+import './component/Login.css';
+import './pages/AddServices.css';
+import AddServices from './pages/services/AddServices';
+
+
+
+// import '.pages/img.jpg.jpg';
 
 function App() {
   const location = useLocation();
@@ -23,9 +31,13 @@ function App() {
         <Route path='/doctors' element={<Doctors />} />
         <Route path='/timing' element={<Timing />} />
         <Route path='/services' element={<Services />} />
+        <Route path="/add-service" element={<AddServices/>}></Route>
         <Route path='/contact' element={<Contact />} />
       </Routes>
+      {/* <img.jpg.jpg/> */}
       <ToastContainer />
+    
+
     </>
   );
 }
