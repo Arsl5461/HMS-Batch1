@@ -12,8 +12,7 @@ import SideBar from './component/SideBar';
 import './pages/services.css';
 import './component/Login.css';
 import './pages/AddServices.css';
-import AddServices from './pages/services/AddServices';
-
+import AddServices from './pages/services/AddServices'; 
 
 
 // import '.pages/img.jpg.jpg';
