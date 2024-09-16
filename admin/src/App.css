@@ -159,7 +159,7 @@ body {
   height: 200px;
   width: 200px;
   background-color: pink;
-  margin-left: 310px;
+  /* margin-left: 310px; */
   border-radius: 12px;
 }
 .card2{
@@ -201,6 +201,8 @@ h2{
 }
 .flex{
   display: flex;
-  gap: 100px;
+  gap: 50px;
   margin-top: 60px;
+  justify-content: center;
+  margin-left: 180px;
 }

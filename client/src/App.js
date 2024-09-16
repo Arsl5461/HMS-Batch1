@@ -28,7 +28,7 @@ function App() {
       <Route path='/' element={<Home/>}></Route>
         <Route path='/Contact' element={<Contact/>}></Route>
         <Route path='/Donate' element={<Donate/>}></Route>
-        <Route path='/Parent' element={<Parent/>}></Route>
+               <Route path='/Parent' element={<Parent/>}></Route>
       </Routes>
       <Footer />
       <ToastContainer/>
