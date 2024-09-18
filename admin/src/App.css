@@ -79,17 +79,18 @@ body {
   padding-top: 20px;
 
 }
-hr{
+.flex hr{
+  margin-left:15px ;
   width: 170px;
   margin-top: 10px;
 }
-p{
+.flex p{
   margin-left: 52px;
-  margin-top: -10px;
+  margin-top: 12px;
 }
-h2{
+.flex h2{
   margin-left: 85px;
-  margin-top: -5px;
+  margin-top: 10px;
 }
 .flex{
   display: flex;
