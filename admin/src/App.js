@@ -14,8 +14,6 @@ import './component/Login.css';
 import './pages/AddServices.css';
 import AddServices from './pages/services/AddServices';
 import Adddoctors from './pages/doctors/Adddoctors';
-
-
 // import '.pages/img.jpg.jpg';
 
 function App() {
