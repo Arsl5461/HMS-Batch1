@@ -3,269 +3,170 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { useNavigate } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
 
-
-
 const Services = () => {
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const goToAddServices = () => {
-        navigate('/add-service'); 
+        navigate('/add-service');
     };
+
     const columns = [
-      {
-        name: 'Title',
-        selector: row => row.title,
-        style: {
-          padding: '0 5px', // Adjust the padding to control the space
+        {
+            name: 'Title',
+            selector: row => row.title,
+            style: {
+                padding: '5px', // Reduce padding
+                  marginLeft:"10px"
+            },
         },
-      },
-      {
-        name: 'EXT',
-        selector: row => row.ext,
-        style: {
-          padding: '0 5px',
+        {
+            name: 'EXT',
+            selector: row => row.ext,
+            style: {
+                padding: '5px',
+            },
         },
-      },
-      {
-        name: 'Image',
-        selector: row => <img src={row.image} alt={row.title} style={{height:"auto", width:"50px"}}/>,
-        style: {
-          padding: '0 5px',
+        {
+            name: 'Image',
+            selector: row => <img src={row.image} alt={row.title} style={{ height: "auto", width: "50px" }} />,
+            style: {
+                padding: '5px',
+            },
         },
-      },
-      {
-        name: 'Description',
-        selector: row => row.description,
-        style: {
-          padding: '0 5px',
+        {
+            name: 'Description',
+            selector: row => row.description,
+            style: {
+                padding: '5px',
+            },
         },
-      },
     ];
-    
-    
+
     const data = [
         {
-        id: 1,
-        title: 'Accident & Emergency',
-        ext:"Ext: 333 / 444",
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/smartwatch_4025363.png",
-        description:"Shalamar Hospital’s Accidents and Emergency Department is serving a vast locality of all socio-economical strata. A team of dedicated doctors is round the clock present to serve ill-health people with all types of medical and surgical emergencies. Our motto is to be very sympathetic and considerate of community health and give them comfort."
-      },
-      {
-        id: 2,
-        title: 'Burn & Plastic Surgery',
-        ext: 'Ext: 425',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
-        description:"At our hospital, we take a holistic approach to healthcare, addressing not just your physical needs but your emotional and mental wellbeing as well"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
+            id: 1,
+            title: 'Accident & Emergency',
+            ext: "Ext: 333 / 444",
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/smartwatch_4025363.png",
+            description: "Shalamar Hospital’s Accidents and Emergency Department is serving a vast locality..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
+        {
+            id: 2,
+            title: 'Burn & Plastic Surgery',
+            ext: 'Ext: 425',
+            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
+            description: "At our hospital, we take a holistic approach to healthcare..."
+        },
 
-    ]
+    ];
 
     return (
-        <div style={{ marginLeft: "200px" }}>
+        <div style={{ marginLeft: "200px", width: "calc(100% - 200px)" }}> {/* Ensure full-width minus margin */}
             <div className="background">
                 <div className="blue-nav">
                     <FaRegCircleUser className="user" />
@@ -283,15 +184,40 @@ const Services = () => {
                     </button>
                 </div>
 
-
-		<DataTable
-			columns={columns}
-			data={data}
-      pagination
-		/>
-              
+                {/* Add compact style and set table width */}
+                <div style={{ width: "100%" }}>
+                    <DataTable
+                        columns={columns}
+                        data={data}
+                        pagination
+                        customStyles={{
+                            rows: {
+                                style: {
+                                    minHeight: '40px', // Set minimal row height
+                                  
+                                    
+                                },
+                            },
+                            headCells: {
+                                style: {
+                                    paddingLeft: '8px',
+                                    paddingRight: '8px',
+                                },
+                            },
+                            cells: {
+                                style: {
+                                    paddingLeft: '8px',
+                                    paddingRight: '8px',
+                                },
+                            },
+                        }}
+                        responsive
+                        dense // Makes the table more compact
+                    />
+                </div>
             </div>
         </div>
     );
-  }
+}
+
 export default Services;
