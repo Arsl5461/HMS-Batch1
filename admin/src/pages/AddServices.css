@@ -39,23 +39,6 @@
     gap: 200px;
 
 }
-.input-box{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 50px; 
-}
-.addadvantage{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 50px;
-}
-.removeadvantage{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    gap: 50px;
-}
+
     
 
