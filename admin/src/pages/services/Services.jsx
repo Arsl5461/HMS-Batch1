@@ -15,8 +15,9 @@ const Services = () => {
             name: 'Title',
             selector: row => row.title,
             style: {
-                padding: '5px', // Reduce padding
-                  marginLeft:"10px"
+                padding: '5px', 
+                
+                marginLeft:"10px"
             },
         },
         {
@@ -166,14 +167,12 @@ const Services = () => {
     ];
 
     return (
-        <div style={{ marginLeft: "200px", width: "calc(100% - 200px)" }}> {/* Ensure full-width minus margin */}
+        <div style={{ marginLeft: "200px", width: "calc(100% - 200px)" }}> 
             <div className="background">
                 <div className="blue-nav">
                     <FaRegCircleUser className="user" />
                 </div>
-                <div className="upperiamg">
-                    {/* Add content here if needed */}
-                </div>
+                
                 <div className="box">
                     <h2>Welcome To Service Page</h2>
                 </div>
@@ -184,7 +183,7 @@ const Services = () => {
                     </button>
                 </div>
 
-                {/* Add compact style and set table width */}
+                
                 <div style={{ width: "100%" }}>
                     <DataTable
                         columns={columns}
@@ -193,26 +192,26 @@ const Services = () => {
                         customStyles={{
                             rows: {
                                 style: {
-                                    minHeight: '40px', // Set minimal row height
+                                    minHeight: '30px', 
                                   
                                     
                                 },
                             },
                             headCells: {
                                 style: {
-                                    paddingLeft: '8px',
-                                    paddingRight: '8px',
+                                    paddingLeft: '4px',
+                                    paddingRight: '4px',
                                 },
                             },
                             cells: {
                                 style: {
-                                    paddingLeft: '8px',
-                                    paddingRight: '8px',
+                                    paddingLeft: '4px',
+                                    paddingRight: '4px',
                                 },
                             },
                         }}
                         responsive
-                        dense // Makes the table more compact
+                        dense 
                     />
                 </div>
             </div>
