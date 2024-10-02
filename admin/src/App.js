@@ -14,6 +14,9 @@ import './component/Login.css';
 import './pages/AddServices.css';
 import AddServices from './pages/services/AddServices';
 import Adddoctors from './pages/doctors/Adddoctors';
+import './pages/contact/Contactbutton.css';
+import AddContact from './pages/contact/AddContact';
+
 // import '.pages/img.jpg.jpg';
 
 function App() {
@@ -32,6 +35,7 @@ function App() {
         <Route path="/add-service" element={<AddServices/>}></Route>
         <Route path="/add-doctor" element={<Adddoctors/>}></Route>
         <Route path='/contact' element={<Contact />} />
+        <Route path="/add-contact" element={<AddContact/>}></Route>
       </Routes>
       {/* <img.jpg.jpg/> */}
       <ToastContainer />

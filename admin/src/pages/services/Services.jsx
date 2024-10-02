@@ -128,41 +128,7 @@ const Services = () => {
             image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
             description: "At our hospital, we take a holistic approach to healthcare..."
         },
-        {
-            id: 2,
-            title: 'Burn & Plastic Surgery',
-            ext: 'Ext: 425',
-            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
-            description: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 2,
-            title: 'Burn & Plastic Surgery',
-            ext: 'Ext: 425',
-            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
-            description: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 2,
-            title: 'Burn & Plastic Surgery',
-            ext: 'Ext: 425',
-            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
-            description: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 2,
-            title: 'Burn & Plastic Surgery',
-            ext: 'Ext: 425',
-            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
-            description: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 2,
-            title: 'Burn & Plastic Surgery',
-            ext: 'Ext: 425',
-            image: "https://shalamarhospital.org.pk/wp-content/uploads/2024/05/self-care_9032112.png",
-            description: "At our hospital, we take a holistic approach to healthcare..."
-        },
+      
 
     ];
 

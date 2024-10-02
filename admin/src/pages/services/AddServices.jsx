@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { FaRegCircleUser } from "react-icons/fa6";
 
 const AddServices = () => {
-  const [advantages, setAdvantages] = useState([""]); // Initialize state for advantages
+  const [advantages, setAdvantages] = useState([""]); 
 
   const thumbnailInputRef = useRef(null);
   const detailInputRef = useRef(null);

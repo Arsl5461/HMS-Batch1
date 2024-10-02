@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { FaRegCircleUser } from "react-icons/fa6";
 
 const AddServices = () => {
-  const [advantages, setAdvantages] = useState([""]); // Initialize state for advantages
+  const [advantages, setAdvantages] = useState([""]); 
 
   const thumbnailInputRef = useRef(null);
   const detailInputRef = useRef(null);
@@ -38,7 +38,7 @@ const AddServices = () => {
   };
 
   const handleAddService = () => {
-    // Logic for adding a service (currently a placeholder)
+    
     console.log('Service added');
   };
 
@@ -98,14 +98,14 @@ const AddServices = () => {
               accept="image/*"
               ref={detailInputRef}
               onChange={handleFileChange}
-              style={{ display: 'none' }} // Hide the file input
+              style={{ display: 'none' }} 
             />
           </div>
         </div>
 <br />    <br />
 
         <div className='input-box' style={{ marginLeft: "-20px" }}>
-          {/* Name Input */}
+          
           <div style={{ marginBottom: '20px' }}>
             <label htmlFor="name" style={{ display: 'block', marginBottom: '8px' }}>
               Name:
@@ -124,7 +124,7 @@ const AddServices = () => {
               }}
             />
           </div>
-          {/* Select Field */}
+          
           <div style={{ marginBottom: '20px' }}>
             <label htmlFor="field" style={{ display: 'block', marginBottom: '8px' }}>
               Select a Field:
