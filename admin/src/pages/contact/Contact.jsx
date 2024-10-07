@@ -1,84 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaRegCircleUser } from "react-icons/fa6";
 import DataTable from 'react-data-table-component';
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 const Contact = () => {
-    const [data, setData] = React.useState([
-        {
-            id: 1,
-            name: 'Sir Arslan Akmal',
-            email: 'arsl123@gmail.com',
-            gender: 'male',
-            country: 'Pakistan',
-            Message: "At our hospital, we"
-        },
-        {
-            id: 2,
-            name: 'Ayisha',
-            email: 'aysha123@gmail.com',
-            gender: 'female',
-            country: 'Pakistan',
-            Message: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 3,
-            name: 'Sana',
-            email: 's123@gmail.com',
-            gender: 'female',
-            country: 'Pakistan',
-            Message: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 4,
-            name: 'Tehreem',
-            email: 'tehreem123@gmail.com',
-            gender: 'female',
-            country: 'Pakistan',
-            Message: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 5,
-            name: 'Atiqa',
-            email: 'atiqa123@gmail.com',
-            gender: 'female',
-            country: 'Pakistan',
-            Message: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 6,
-            name: 'Zanoon',
-            email: 'Z123@gmail.com',
-            gender: 'male',
-            country: 'Pakistan',
-            Message: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 7,
-            name: 'Uzair',
-            email: 'Uzair123@gmail.com',
-            gender: 'male',
-            country: 'Pakistan',
-            Message: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 8,
-            name: 'Hanan',
-            email: 'hanan123@gmail.com',
-            gender: 'male',
-            country: 'Pakistan',
-            Message: "At our hospital, we take a holistic approach to healthcare..."
-        },
-        {
-            id: 9,
-            name: 'Zain',
-            email: 'zain123@gmail.com',
-            gender: 'male',
-            country: 'Pakistan',
-            Message: "At our hospital, we take a holistic approach to healthcare..."
-        },
-    ]);
-
+    const [data, setData] = React.useState([])
+    const fetchContact=async()=>{
+const response=await axios.get("http://localhost:8082/api/admin/contact")
+setData(response.data.contacts)
+    }
+    useEffect(()=>{
+        fetchContact();
+    })
     const columns = [
         {
             name: 'Name',
@@ -111,7 +44,7 @@ const Contact = () => {
         },
         {
             name: 'Message',
-            selector: row => row.Message,
+            selector: row => row.message,
             style: {
                 padding: '5px',
             },

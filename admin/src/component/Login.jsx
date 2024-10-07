@@ -4,18 +4,24 @@ import { FaFacebookF } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 import axios from "axios"
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
     const [formData, setFormData] = useState({
         email: "",
         password: ""
     });
+    const [show, setShow] = useState(false)
 
     const navigate = useNavigate();
 
     const onChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
+    const showPassword = () => {
+        setShow(!show)
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -47,16 +53,21 @@ const Login = () => {
                                 required
                             />
                         </div>
-                        <div className="form-group">
+                        <div className="form-group password-group">
                             <label htmlFor="password">Password:</label>
-                            <input
-                                type="password"
-                                id="password"
-                                value={formData.password}
-                                name="password"
-                                onChange={onChange}
-                                required
-                            />
+                            <div className="input-wrapper">
+                                <input
+                                    type={show ? "text" : "password"}
+                                    id="password"
+                                    value={formData.password}
+                                    name="password"
+                                    onChange={onChange}
+                                    required
+                                />
+                                <span className="password-icon" onClick={showPassword}>
+                                    {show ? <FaEyeSlash /> : <FaEye />}
+                                </span>
+                            </div>
                         </div>
                         <button type="submit" style={{ marginTop: "40px" }}>Sign in</button>
                         <p className="not-account">Don't have an account? <a href="">Sign up</a></p>
