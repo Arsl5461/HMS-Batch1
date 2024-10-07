@@ -3,6 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
+import axios from "axios"
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -16,17 +17,16 @@ const Login = () => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (formData.email === "admin@gmail.com" && formData.password === "admin123") {
-            toast.success("You logged in");
-            setFormData({
-                email: "",
-                password: ""
-            });
+        const response = await axios.post("http://localhost:8082/api/admin/user/login", formData)
+        console.log(response);
+        if (response.data.success) {
+            toast.success(response.data.message)
             navigate("/dashboard");
+
         } else {
-            toast.warning("Username or Password is wrong");
+            toast.warning(response.data.message);
         }
     };
 
@@ -58,7 +58,7 @@ const Login = () => {
                                 required
                             />
                         </div>
-                        <button type="submit" style={{marginTop: "40px"}}>Sign in</button>
+                        <button type="submit" style={{ marginTop: "40px" }}>Sign in</button>
                         <p className="not-account">Don't have an account? <a href="">Sign up</a></p>
                         <hr className='loginhr' />
                         <p className="end">Or sign in with <FcGoogle className="circle" /> <FaFacebookF className="circle" /></p>
