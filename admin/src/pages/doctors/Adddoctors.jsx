@@ -17,7 +17,6 @@ const AddServices = () => {
     const handleFileChange = (e) => {
         setFormData({ ...formData, image: e.target.files[0] });
     };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         alert(`Submitted:\nname: ${formData.name}\neducation: ${formData.education}\nemail: ${formData.email}\nImage: ${formData.image ? formData.image.name : 'No file chosen'}`);
