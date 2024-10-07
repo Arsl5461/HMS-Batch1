@@ -4,15 +4,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import { useNavigate } from "react-router-dom";
 
-
-
 const Login = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
-
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -41,23 +33,9 @@ const Login = () => {
     return (
         <div>
             <div className="backgroundtwo">
-                
-
                 <div className="login">
-                <p class="account">Admin Login</p>
+                    <p className="account">Admin Login</p>
                     <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                            <label htmlFor="phone-number">Phone Number:</label>
-                            <input
-                                type="text"
-                                id="number"
-                                value={formData.number}
-                                onChange={onChange}
-                                name="number"
-                                required
-                            />
-                        </div>
-
                         <div className="form-group">
                             <label htmlFor="email">Email:</label>
                             <input
@@ -80,15 +58,13 @@ const Login = () => {
                                 required
                             />
                         </div>
-                        <button type="submit">Sign in</button>
+                        <button type="submit" style={{marginTop: "40px"}}>Sign in</button>
                         <p className="not-account">Don't have an account? <a href="">Sign up</a></p>
-
                         <hr className='loginhr' />
                         <p className="end">Or sign in with <FcGoogle className="circle" /> <FaFacebookF className="circle" /></p>
                     </form>
                 </div>
             </div>
-
         </div>
     );
 };
