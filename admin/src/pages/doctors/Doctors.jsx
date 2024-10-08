@@ -1,16 +1,30 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import { FaRegCircleUser } from "react-icons/fa6";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import DataTable from 'react-data-table-component';
-
-
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Doctors = () => {
+  const [data,setData]=useState([]);
+  const fetchDoctors=async()=>{
+const response=await axios.get("http://localhost:8082/api/admin/doctor")
+setData(response.data.doctors)
+  }
+  useEffect(()=>{
+    fetchDoctors()
+  },[])
     const navigate = useNavigate(); 
-
     const goToAddServices = () => {
         navigate('/add-doctor'); 
     };
+    const handleRemove=async(id)=>{
+      const response=await axios.delete(`http://localhost:8082/api/admin/doctor/${id}`) 
+      if(response.data.success){
+        toast.success(response.data.message)
+        fetchDoctors();
+      }
+    }
     const columns = [
       {
         name: 'Name',
@@ -40,230 +54,41 @@ const Doctors = () => {
           padding: '0 5px',
         },
       },
+      {
+        name: 'Phone',
+        selector: row => row.phone,
+        style: {
+          padding: '0 5px',
+        },
+      },
+      {
+        name: 'Gender',
+        selector: row => row.gender,
+        style: {
+          padding: '0 5px',
+        },
+      },
+      {
+        name: 'Actions' ,
+        style: {
+            padding: '5px',
+        },
+        cell: row => (
+            <div style={{ display: 'flex', justifyContent: 'space-between'}}>
+                <div className="contact-button">
+                  <Link to={`/update-doctor/${row._id}`}>
+                    <div className="tick">
+                    ✔️
+                    </div>
+                    </Link>
+                    <div className="cross" onClick={() => handleRemove(row._id)}>
+                    ❌
+                    </div>
+                </div>
+            </div>
+        ),
+    },
     ];
-    
-    
-    const data = [
-        {
-        id: 1,
-        name: 'Doctor Arslan',
-        education:"MBBS from Toronto Medical university",
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/smartwatch_4025363.png",
-        email:"arsal@gmail.com"
-      },
-      {
-        id: 2,
-        name: 'Doctor Zain',
-        education:"MBBS from Toronto Medical university",
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/smartwatch_4025363.png",
-        email:"zainulabedeen@gmail.com"
-      },
-      {
-        id: 3,
-        name: 'Doctor Zunoon',
-        education:"MBBS from Toronto Medical university",
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/smartwatch_4025363.png",
-        email:"zunoon@gmail.com"
-      },
-      {
-        id: 3,
-        name: 'Doctor Uzair',
-        education:"MBBS from Sadiqabad university",
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/smartwatch_4025363.png",
-        email:"uzair@gmail.com"
-      },
-      {
-        id: 3,
-        name: 'Doctor Hanan',
-        education:"MBBS from Toronto Medical university",
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/smartwatch_4025363.png",
-        email:"hanan@gmail.com",
-      },
-      {
-        id: 3,
-        name: 'Doctor Tehreem',
-        education:"MBBS from kot abdul malik university",
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/smartwatch_4025363.png",
-        email:"tehreem@gmail.com"
-      },
-      {
-        id: 3,
-        name: 'Doctor Sana',
-        education:"MBBS from kot abdul malik university",
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/smartwatch_4025363.png",
-        email:"sana@gmail.com"
-      },
-      {
-        id: 3,
-        name: 'Doctor Ayesha',
-        education:"MBBS from kot abdul malik university",
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/smartwatch_4025363.png",
-        email:"ayesha@gmail.com"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-      {
-        id: 3,
-        title: 'Cardiology',
-        ext: 'Ext: 320',
-        image:"https://shalamarhospital.org.pk/wp-content/uploads/2024/05/gear_10316792.png",
-        description:"From our commitment to patient privacy and confidentiality to our rigorous safety protocols, you can trust that you're in good hands at our hospital"
-      },
-
-    ]
-
     return (
         <div style={{ marginLeft: "200px" }}>
             <div className="background">
