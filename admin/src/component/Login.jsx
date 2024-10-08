@@ -70,9 +70,6 @@ const Login = () => {
                             </div>
                         </div>
                         <button type="submit" style={{ marginTop: "40px" }}>Sign in</button>
-                        <p className="not-account">Don't have an account? <a href="">Sign up</a></p>
-                        <hr className='loginhr' />
-                        <p className="end">Or sign in with <FcGoogle className="circle" /> <FaFacebookF className="circle" /></p>
                     </form>
                 </div>
             </div>
