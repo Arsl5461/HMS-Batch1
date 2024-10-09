@@ -5,6 +5,7 @@ import { FaMailBulk } from "react-icons/fa";
 import "./contact.css"
 import {toast} from "react-toastify"
 import { useNavigate } from 'react-router-dom';
+import axios from "axios"
 
 const ContactUs = () => {
   const [formData,setFormData]=useState({
@@ -19,8 +20,10 @@ const ContactUs = () => {
 const onChange=(e)=>{
   setFormData({...formData,[e.target.name]:e.target.value})
 }
-const onSubmit=(e)=>{
+const onSubmit=async(e)=>{
 e.preventDefault();
+const response=await axios.post("http://localhost:8082/api/admin/contact",formData)
+if(response.data.success){
   setFormData({
     name:"",
     email:"",
@@ -30,6 +33,7 @@ e.preventDefault();
   })
   toast.success("Contact Created Successfully!")
 navigate("/")
+}
 }
   return (
     <>
