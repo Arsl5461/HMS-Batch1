@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { FaRegCircleUser } from "react-icons/fa6";
+import axios from "axios";
+import {toast} from "react-toastify"
+import {useNavigate} from "react-router-dom"
 
 const AddServices = () => {
     const [formData, setFormData] = useState({
@@ -13,20 +16,24 @@ const AddServices = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handleFileChange = (e) => {
-        setFormData({ ...formData, image: e.target.files[0] });
-    };
-
-    const handleSubmit = (e) => {
+    // const handleFileChange = (e) => {
+    //     setFormData({ ...formData, image: e.target.files[0] });
+    // };
+const navigate=useNavigate();
+    const handleSubmit = async(e) => {
         e.preventDefault();
-        alert(`Submitted:\nTitle: ${formData.title}\nExt: ${formData.ext}\nDescription: ${formData.description}\nImage: ${formData.image ? formData.image.name : 'No file chosen'}`);
+        const response=await axios.post("http://localhost:8082/api/admin/service",formData)
+        if(response.data.success){
+            toast.success("Service Created Successfully")
+            setFormData({
+                title: '',
+                ext: '',
+                description: '',
+                image: null,
+            }); 
+            navigate("/services")
+        }
         
-        setFormData({
-            title: '',
-            ext: '',
-            description: '',
-            image: null,
-        });
     };
 
     return (
@@ -73,7 +80,7 @@ const AddServices = () => {
                             style={{ width: "250px", height: "100px" }} 
                         ></textarea>
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <label htmlFor="image">Choose Image:</label>
                         <input
                             type="file"
@@ -84,7 +91,7 @@ const AddServices = () => {
                             required
                             style={{ width: "250px" }} 
                         />
-                    </div>
+                    </div> */}
                     <button type="submit" style={{ width: "250px", backgroundColor: '#020249'}}>Submit</button>
                 </form>
             </div>
