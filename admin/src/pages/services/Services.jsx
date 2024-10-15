@@ -42,7 +42,7 @@ const Services = () => {
       name: "Image",
       selector: (row) => (
         <img
-          src={row.image}
+          src={`http://localhost:8082/uploads/${row.image}`}
           alt={row.title}
           style={{ height: "auto", width: "50px" }}
         />
