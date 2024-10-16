@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 import { FaRegCircleUser } from "react-icons/fa6";
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const AddContact = () => {
     const [formData, setFormData] = useState({
-        title: '',
-        ext: '',
-        description: '',
-        image: null,
+        name: '',
+        email: '',
+        country: '',
+        message: '',
         gender: '',
     });
-
+    const navigate = useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -19,23 +22,26 @@ const AddContact = () => {
         setFormData({ ...formData, gender: event.target.value });
     };
 
-    const handleFileChange = (e) => {
-        setFormData({ ...formData, image: e.target.files[0] });
-    };
-
-    const handleSubmit = (e) => {
+    const handleSubmit =async (e) => {
         e.preventDefault();
-        alert(`Submitted:\nName: ${formData.name}\nEmail: ${formData.email}\nCountry: ${formData.country}\nGender: ${formData.gender}\nMessage: ${formData.message}`);
+        const response=await axios.post("http://localhost:8082/api/admin/contact", formData)
+        if (response.data.success) {
+            toast.success(response.data.message);
+            navigate("/contact")
+            setFormData({
+                name: '',
+                email: '',
+                country: '',
+                gender: '',
+                message: '',
 
-
-        setFormData({
-            name: '',
-            email: '',
-            country: '',
-            message: '',
-            gender: '',
-        });
+            });
+        }
+        else {
+            toast.warning(response.data.message)
+        }
     };
+    const {name,email,country,gender,message}=formData;
 
     return (
         <div style={{ marginLeft: "200px" }}>
@@ -50,8 +56,8 @@ const AddContact = () => {
                             placeholder="Enter Here"
                             type="text"
                             id="name"
-                            name="title"
-                            value={formData.title}
+                            name="name"
+                            value={name}
                             onChange={handleChange}
                             required
                             style={{ width: "250px", height: "50px" }}
@@ -63,15 +69,15 @@ const AddContact = () => {
                             placeholder="Enter Here"
                             type="text"
                             id="email"
-                            name="ext"
-                            value={formData.ext}
+                            name="email"
+                            value={email}
                             onChange={handleChange}
                             required
                             style={{ width: "250px", height: "50px" }}
                         />
                     </div>
 
-                    <select name='country' className='country' onChange={handleChange} style={{padding: "15px", width: "250px"}}>
+                    <select name='country' className='country' onChange={handleChange} style={{ padding: "15px", width: "250px" }}>
                         <option disabled selected hidden>Select country</option>
                         <option value="Pakistan">Pakistan</option>
                         <option value="India">India</option>
@@ -81,14 +87,14 @@ const AddContact = () => {
                     </select>
 
 
-                    <div className="form-group" style={{marginTop: "20px"}}>
+                    <div className="form-group" style={{ marginTop: "20px" }}>
                         <label>Gender:</label>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                             <label style={{ display: 'flex', alignItems: 'center' }}>
                                 <input
                                     type="radio"
                                     value="male"
-                                    checked={formData.gender === 'male'}
+                                    checked={gender === 'male'}
                                     onChange={handleGenderChange}
                                 />
                                 <span style={{ marginLeft: '10px' }}>Male</span>
@@ -97,7 +103,7 @@ const AddContact = () => {
                                 <input
                                     type="radio"
                                     value="female"
-                                    checked={formData.gender === 'female'}
+                                    checked={gender === 'female'}
                                     onChange={handleGenderChange}
                                 />
                                 <span style={{ marginLeft: '10px' }}>Female</span>
@@ -109,8 +115,8 @@ const AddContact = () => {
                         <label htmlFor="message">Message:</label>
                         <textarea
                             id="message"
-                            name="description"
-                            value={formData.description}
+                            name="message"
+                            value={message}
                             onChange={handleChange}
                             required
                             style={{ width: "250px", height: "100px" }}

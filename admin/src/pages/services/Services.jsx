@@ -1,33 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { FaRegCircleUser } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Services = () => {
-  const navigate = useNavigate();
-
-  const goToAddServices = () => {
-    navigate("/add-service");
-  };
-  const [services, setServices] = useState([]);
+  const [data, setServices] = useState([]);
   const fetchServices = async () => {
-    const response = await axios.get("http://localhost:8082/api/admin/service");
-    if (response.data.success) {
-      setServices(response.data.services);
+    try {
+      const response = await axios.get(
+        "http://localhost:8082/api/admin/service"
+      );
+      if (response.data.success) {
+        setServices(response.data.services);
+      }
+    } catch (error) {
+      toast.error("Failed to fetch services");
+      console.error(error);
     }
   };
 
   useEffect(() => {
     fetchServices();
   }, []);
+
+  const navigate = useNavigate();
+  const goToAddServices = () => {
+    navigate("/add-service");
+  };
+
+  const handleRemove = async (id) => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8082/api/admin/service/${id}`
+      );
+      if (response.data.success) {
+        toast.success(response.data.message);
+        fetchServices();
+      }
+    } catch (error) {
+      toast.error("Failed to remove service");
+      console.error(error);
+    }
+  };
+
   const columns = [
     {
       name: "Title",
       selector: (row) => row.title,
       style: {
         padding: "5px",
-
         marginLeft: "10px",
       },
     },
@@ -39,10 +62,17 @@ const Services = () => {
       },
     },
     {
+      name: "Description",
+      selector: (row) => row.description,
+      style: {
+        padding: "5px",
+      },
+    },
+    {
       name: "Image",
       selector: (row) => (
         <img
-          src={row.image}
+          src={`http://localhost:8082/uploads/${row.image}`}
           alt={row.title}
           style={{ height: "auto", width: "50px" }}
         />
@@ -52,13 +82,27 @@ const Services = () => {
       },
     },
     {
-      name: "Description",
-      selector: (row) => row.description,
+      name: "Actions",
       style: {
         padding: "5px",
       },
+      cell: (row) => (
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div className="contact-button">
+            <Link to={`/update-service/${row._id}`}>
+              <div className="tick">
+                ✔️
+              </div>
+            </Link>
+            <div className="cross" onClick={() => handleRemove(row._id)}>
+              ❌
+            </div>
+          </div>
+        </div>
+      ),
     },
   ];
+
   return (
     <div style={{ marginLeft: "200px", width: "calc(100% - 200px)" }}>
       <div className="background">
@@ -74,14 +118,14 @@ const Services = () => {
             Services List
           </h3>
           <button className="btn" onClick={goToAddServices}>
-            +Add Service
+            +Add Services
           </button>
         </div>
 
         <div style={{ width: "100%" }}>
           <DataTable
             columns={columns}
-            data={services}
+            data={data}
             pagination
             customStyles={{
               rows: {

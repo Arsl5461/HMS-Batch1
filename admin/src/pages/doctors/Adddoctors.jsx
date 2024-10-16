@@ -4,7 +4,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 
-const AddServices = () => {
+const AddDoctors = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -17,6 +17,10 @@ const navigate=useNavigate();
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
+    };
+
+    const handleGenderChange = (event) => {
+        setFormData({ ...formData, gender: event.target.value });
     };
 
     const handleFileChange = (e) => {
@@ -61,7 +65,7 @@ const navigate=useNavigate();
                             value={name}
                             onChange={handleChange}
                             required
-                            style={{ width: "250px", height: "50px" }} // Style applied here
+                            style={{ width: "250px", height: "50px" }}
                         />
                     </div>
                     <div className="form-group">
@@ -102,13 +106,29 @@ const navigate=useNavigate();
                             style={{ width: "250px", height: "50px" }} 
                         />
                     </div>
-                    <div>
-                    <label>
-                        <input type='radio' name='gender' value={"Male"} onChange={handleChange}/>
-                        <label>Male</label>
-                        <input type='radio' name='gender' value={"Female"} onChange={handleChange}/>
-                        <label>Female</label>
-                    </label>
+                    
+                    <div className="form-group" style={{marginTop: "20px"}}>
+                        <label>Gender:</label>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                            <label style={{ display: 'flex', alignItems: 'center' }}>
+                                <input
+                                    type="radio"
+                                    value="male"
+                                    checked={gender === 'male'}
+                                    onChange={handleGenderChange}
+                                />
+                                <span style={{ marginLeft: '10px' }}>Male</span>
+                            </label>
+                            <label style={{ display: 'flex', alignItems: 'center' }}>
+                                <input
+                                    type="radio"
+                                    value="female"
+                                    checked={gender === 'female'}
+                                    onChange={handleGenderChange}
+                                />
+                                <span style={{ marginLeft: '10px' }}>Female</span>
+                            </label>
+                        </div>
                     </div>
                     {/* <div className="form-group">
                         <label htmlFor="image">Choose Image:</label>
@@ -129,4 +149,4 @@ const navigate=useNavigate();
     );
 }
 
-export default AddServices;
+export default AddDoctors;
