@@ -11,7 +11,6 @@ const AddServices = () => {
     description: "",
     image: null,
   });
-  const navigate = useNavigate();
     const handleFileChange = (e) => {
         setFormData({ ...formData, image: e.target.files[0] });
     };
