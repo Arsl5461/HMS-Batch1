@@ -14,6 +14,9 @@ const AddServices = () => {
     const handleFileChange = (e) => {
         setFormData({ ...formData, image: e.target.files[0] });
     };
+    const handleChange=(e)=>{
+        setFormData({...formData,[e.target.name]:e.target.value})
+    }
     const newFormData=new FormData();
         newFormData.append("title", formData.title);
         newFormData.append("ext", formData.ext);
