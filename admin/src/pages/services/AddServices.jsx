@@ -16,13 +16,23 @@ const AddServices = () => {
         setFormData({ ...formData, [name]: value });
     };
 
-    // const handleFileChange = (e) => {
-    //     setFormData({ ...formData, image: e.target.files[0] });
-    // };
+    const handleFileChange = (e) => {
+        setFormData({ ...formData, image: e.target.files[0] });
+    };
+    const newFormData=new FormData();
+        newFormData.append("title", formData.title);
+        newFormData.append("ext", formData.ext);
+        newFormData.append("description", formData.description);
+        newFormData.append("image", formData.image);
+
 const navigate=useNavigate();
     const handleSubmit = async(e) => {
         e.preventDefault();
-        const response=await axios.post("http://localhost:8082/api/admin/service",formData)
+        const response=await axios.post("http://localhost:8082/api/admin/service",newFormData,{
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
         if(response.data.success){
             toast.success("Service Created Successfully")
             setFormData({
@@ -80,7 +90,7 @@ const navigate=useNavigate();
                             style={{ width: "250px", height: "100px" }} 
                         ></textarea>
                     </div>
-                    {/* <div className="form-group">
+                    <div className="form-group">
                         <label htmlFor="image">Choose Image:</label>
                         <input
                             type="file"
@@ -91,7 +101,7 @@ const navigate=useNavigate();
                             required
                             style={{ width: "250px" }} 
                         />
-                    </div> */}
+                    </div>
                     <button type="submit" style={{ width: "250px", backgroundColor: '#020249'}}>Submit</button>
                 </form>
             </div>
