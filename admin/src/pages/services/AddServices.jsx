@@ -1,21 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { FaRegCircleUser } from "react-icons/fa6";
 import axios from "axios";
-import {toast} from "react-toastify"
-import {useNavigate} from "react-router-dom"
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AddServices = () => {
-    const [formData, setFormData] = useState({
-        title: '',
-        ext: '',
-        description: '',
-        image: null,
-    });
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
+  const [formData, setFormData] = useState({
+    title: "",
+    ext: "",
+    description: "",
+    image: null,
+  });
+  const navigate = useNavigate();
     const handleFileChange = (e) => {
         setFormData({ ...formData, image: e.target.files[0] });
     };
