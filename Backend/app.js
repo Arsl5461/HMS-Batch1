@@ -4,9 +4,11 @@ const PORT=8082;
 const connectDb=require("./config/connectDb")
 const mainRouter=require("./routes/index")
 const cors=require("cors")
+const path=require("path")
 
 
 connectDb();
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(cors());
 app.use(express.json())
 app.use("/api/admin",mainRouter)

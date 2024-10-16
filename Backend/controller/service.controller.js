@@ -2,6 +2,7 @@ const Services = require("../models/services.model");
 
 exports.store = async (req, res) => {
   try {
+    req.body.image=req.file.filename;
     const services = await Services.create(req.body);
     res.json({
       messsage: "Services Created Successfully",
