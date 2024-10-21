@@ -13,26 +13,83 @@ exports.store = async (req, res) => {
         console.log(err)
     }
 }
-exports.login=async(req,res)=>{
-    try{
-const {email,password}=req.body;
-const user=await User.findOne({email:email})
-if(!user){
-    return res.json({message:"User not Found",success:false,status:400})
-}
-const comparePassword=await bcrypt.compare(password,user.password)
-if(comparePassword){
-    res.json({message:"User Login Succesfully",success:true,status:200})
-}
-else{
-    return res.json({message:"Password Incorrect",success:false,status:403})
-}
+exports.login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email: email })
+        if (!user) {
+            return res.json({ message: "User not Found", success: false, status: 400 })
+        }
+        const comparePassword = await bcrypt.compare(password, user.password)
+        if (comparePassword) {
+            res.json({ message: "User Login Succesfully", success: true, status: 200 })
+        }
+        else {
+            return res.json({ message: "Password Incorrect", success: false, status: 403 })
+        }
 
     }
-    catch(err){
+    catch (err) {
         console.log(err)
     }
 }
+
+exports.forgot = async (req, res) => {
+    try {
+        const { email } = req.body;
+        const user = await User.findOne({ email: email })
+        if (!user) {
+            return res.json({ message: "User not Found", success: false, status: 400 })
+        }
+        const otpCode = Math.floor(100000 + Math.random() * 900000);
+        user.otpCode = otpCode;
+        await user.save()
+        return res.json({ success: true, status: 200, message: "OTP Generated Successfully" })
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+exports.verifyotp = async (req, res) => {
+    try {
+        const { email, otp } = req.body;
+        const user = await User.findOne({ email: email })
+        if (!user) {
+            return res.json({ message: "User not Found", success: false, status: 400 })
+        }
+        if (user.otpCode == otp) {
+            user.otp = null;
+            await user.save()
+            return res.json({ success: true, status: 200, message: "OTP Verified Successfully" })
+        } else {
+            return res.json({ success: false, status: 403, message: "Wrong Code Entered" })
+
+        }
+
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
+exports.updatepassword = async (req, res) => {
+    try {
+        const { email,password} = req.body;
+        const user = await User.findOne({ email: email })
+        if (!user) {
+            return res.json({ message: "User not Found", success: false, status: 400 })
+        }
+        const hashedPassword = await bcrypt.hash(password, 10)
+        user.password=hashedPassword;
+        await user.save()
+        return res.json({message:"Password Updated Successfully",status:200,success:true})
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
 
 exports.index = async (req, res) => {
     try {

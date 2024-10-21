@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebookF } from "react-icons/fa";
 import { toast } from 'react-toastify';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios"
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
@@ -71,6 +71,7 @@ const Login = () => {
                         </div>
                         <button type="submit" style={{ marginTop: "40px" }}>Sign in</button>
                     </form>
+                    <Link to={"/forgot"}>Forgot Password</Link>
                 </div>
             </div>
         </div>
