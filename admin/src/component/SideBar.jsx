@@ -1,6 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+
 const SideBar = () => {
+  const navigate=useNavigate();
+  const logout=()=>{
+    localStorage.removeItem("token")
+navigate("/")
+  }
   return (
     <div>
     <div class="sidebar">
@@ -10,6 +16,7 @@ const SideBar = () => {
             <Link to="/timing">Timing</Link>
             <Link to="/services">Services</Link>
             <Link to="/contact">Contact</Link>
+            <button onClick={logout} className="btn btn-danger">Logout</button>
         </div>
     </div>
     </div>
