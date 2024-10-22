@@ -2,7 +2,7 @@ import './App.css';
 import Login from "./component/Login";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes, useLocation,Navigate } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import Doctors from './pages/doctors/Doctors';
 import Contact from './pages/contact/Contact';
@@ -22,7 +22,10 @@ import ForgotPassword from './pages/forgot/ForgotPassword';
 
 
 // import '.pages/img.jpg.jpg';
-
+const ProtectedRoute = ({ element }) => {
+  const token=localStorage.getItem("token")
+  return token? element : <Navigate to="/" />;
+};
 function App() {
   const location = useLocation();
   const showSidebar = location.pathname !== '/' && location.pathname !=="/forgot";
@@ -32,17 +35,17 @@ function App() {
       {showSidebar && <SideBar />}
       <Routes>
         <Route path='/' element={<Login />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/doctors' element={<Doctors />} />
-        <Route path='/timing' element={<Timing />} />
-        <Route path='/services' element={<Services />} />
-        <Route path="/add-service" element={<AddServices/>}></Route>
-        <Route path="/add-doctor" element={<Adddoctors/>}></Route>
-        <Route path="/update-doctor/:id" element={<UpdateDoctor/>}></Route>
-        <Route path="/update-service/:id" element={<UpdateService/>}></Route>
-        <Route path='/contact' element={<Contact />} />
-        <Route path="/add-contact" element={<AddContact/>}></Route>
         <Route path="/forgot" element={<ForgotPassword/>}></Route>
+        <Route path='/dashboard' element={<ProtectedRoute element={<Dashboard />}/>} />
+        <Route path='/doctors' element={<ProtectedRoute element={<Doctors />}/>} />
+        <Route path='/timing' element={<ProtectedRoute element={<Timing />}/>} />
+        <Route path='/services' element={<ProtectedRoute element={<Services />}/>} />
+        <Route path="/add-service" element={<ProtectedRoute element={<AddServices />}/>}></Route>
+        <Route path="/add-doctor" element={<ProtectedRoute element={<Adddoctors />}/>}></Route>
+        <Route path="/update-doctor/:id" element={<ProtectedRoute element={<UpdateDoctor />}/>}></Route>
+        <Route path="/update-service/:id" element={<ProtectedRoute element={<UpdateService />}/>}></Route>
+        <Route path='/contact' element={<ProtectedRoute element={<Contact />}/>} />
+        <Route path="/add-contact" element={<ProtectedRoute element={<AddContact />}/>}></Route>
 
       </Routes>
       <ToastContainer />

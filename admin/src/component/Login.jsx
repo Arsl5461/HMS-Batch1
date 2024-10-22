@@ -29,6 +29,7 @@ const Login = () => {
         console.log(response);
         if (response.data.success) {
             toast.success(response.data.message)
+            localStorage.setItem("token",response.data.token)
             navigate("/dashboard");
 
         } else {
