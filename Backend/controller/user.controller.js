@@ -2,6 +2,7 @@ const User = require("../models/user.model")
 const bcrypt = require("bcryptjs")
 var jwt = require('jsonwebtoken');
 const SECRET="test123"
+const sendEmail=require("../utils/sendEmail")
 exports.store = async (req, res) => {
     try {
         let { password } = req.body;
@@ -45,7 +46,8 @@ exports.forgot = async (req, res) => {
         }
         const otpCode = Math.floor(100000 + Math.random() * 900000);
         user.otpCode = otpCode;
-        await user.save()
+        await user.save();
+        await sendEmail(user.email,`THis is your verification code ${user.otpCode}`,"OTP FOR FORGET PASSWORD");
         return res.json({ success: true, status: 200, message: "OTP Generated Successfully" })
     }
     catch (err) {
