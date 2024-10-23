@@ -5,8 +5,9 @@ const connectDb=require("./config/connectDb")
 const mainRouter=require("./routes/index")
 const cors=require("cors")
 const path=require("path")
+const dotenv=require("dotenv")
 
-
+dotenv.config();
 connectDb();
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(cors());

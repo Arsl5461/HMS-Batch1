@@ -2,8 +2,8 @@ const mailgun = require("mailgun-js");
 
 const sendEmail = async (email, template, subject) => {
     const mg = mailgun({
-        apiKey: "273f0d3959c4324720e848ceb1f37a04-784975b6-b8a40bf5",
-        domain: "sandbox87af438c34b14af498641db484c664b1.mailgun.org",
+        apiKey: process.env.MAILGUN_API_KEY,
+        domain: process.env.MAILGUN_DOMAIN,
     });
 
     const data = {
