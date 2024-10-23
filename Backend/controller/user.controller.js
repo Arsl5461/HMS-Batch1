@@ -63,7 +63,7 @@ exports.verifyotp = async (req, res) => {
             return res.json({ message: "User not Found", success: false, status: 400 })
         }
         if (user.otpCode == otp) {
-            user.otp = null;
+            user.otpCode = null;
             await user.save()
             return res.json({ success: true, status: 200, message: "OTP Verified Successfully" })
         } else {
