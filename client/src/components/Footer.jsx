@@ -1,12 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Footer = () => {
+    const counterr=useSelector((state)=>state.counter.value)
   return (
     <div class="footer2">
  <div class="QUICK ">
             <ul class="information2">
         <li style={{fontWeight:"bolder", fontSize:"25px"}}>Information</li>
         <li>Board of Trustees</li>
+        <li>{counterr}</li>
         <li>Partnerships</li>
         <li>Corporate Partners</li>
         <li>Privacy Policy</li>

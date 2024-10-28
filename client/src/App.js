@@ -18,15 +18,14 @@ import 'react-toastify/dist/ReactToastify.css';
 import Parent from './components/Parent';
 import Vacent from './components/Vacent';
 import Program from './components/Program';
-
-
-
+import Counter from './components/Counter';
 
 function App() {
   return (
     <>
       <Header />
       <Nav />
+      <Counter/>
       <Routes>
       <Route path='/' element={<Home/>}></Route>
         <Route path='/Contact' element={<Contact/>}></Route>
