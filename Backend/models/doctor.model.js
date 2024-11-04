@@ -15,6 +15,9 @@ gender:{
 },
 education:{
     type:String
+},
+image:{
+    type:String
 }    
 })
 
