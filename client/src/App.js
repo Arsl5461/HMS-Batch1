@@ -6,7 +6,6 @@ import Carousel from './components/Carousel';
 import "./styles.css"
 import Doctors from './components/Doctors';
 import Card from './components/Card';
-import Card1 from './components/Card1';
 import Footer from './components/Footer';
 import { Routes, Route } from 'react-router-dom';
 import Contact from './pages/Contact';
@@ -25,7 +24,6 @@ function App() {
     <>
       <Header />
       <Nav />
-      <Counter/>
       <Routes>
       <Route path='/' element={<Home/>}></Route>
         <Route path='/Contact' element={<Contact/>}></Route>

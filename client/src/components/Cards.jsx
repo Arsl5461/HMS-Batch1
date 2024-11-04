@@ -25,7 +25,7 @@ export default function Cards() {
   };
   const [doctors, setDoctors] = useState([]);
   const fetchDoctors = async () => {
-    const response = await axios.get("http://localhost:8082/api/admin/doctor")
+    const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/doctor`)
     setDoctors(response.data.doctors)
   }
   useEffect(() => {

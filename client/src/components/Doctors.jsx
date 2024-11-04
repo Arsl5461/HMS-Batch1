@@ -1,7 +1,6 @@
 import React from 'react'
 import Cards from './Cards'
 import Card from './Card';
-import Card1 from './Card1';
 import { FaHeadphonesAlt } from "react-icons/fa";
 import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
 import { TbPhoneCall } from "react-icons/tb";
@@ -15,7 +14,6 @@ const Doctors = () => {
                 <p style={{ fontSize: "15px" }}>Shalamar Hospital has a renowned history of serving the community since its founding in 1978. The hospital is equipped  with world-class <br /> medical diagnosis and treatment equipment. Established as a purpose-built building, Shalamar Hospital has grown to a 500-bed medical facility, offering medical services <br /> to the community and international standards, including the American Heart Association and the American College of Cardiology. Shalamar Hospital is committed to making healthcare <br />accessible by ensuring that its services are patient-centered and delivered with excellence and empathy</p>
                 <h2><b>Our Philosophy</b></h2>
             </div>
-            <Card1 />
             <Card />
             <h2 style={{ textAlign: "center", color: "Black", fontFamily: "sans-serif", marginTop: "5px" }}><b>Best Doctors​</b></h2>
             <Cards />
