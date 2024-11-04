@@ -1,85 +1,91 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { FaRegCircleUser } from "react-icons/fa6";
-import { Link, useNavigate } from 'react-router-dom';
-import DataTable from 'react-data-table-component';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import { Link, useNavigate } from "react-router-dom";
+import DataTable from "react-data-table-component";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const Doctors = () => {
   const [data, setData] = useState([]);
   const fetchDoctors = async () => {
-    const response = await axios.get("http://localhost:8082/api/admin/doctor")
-    setData(response.data.doctors)
-  }
+    const response = await axios.get("http://localhost:8082/api/admin/doctor");
+    setData(response.data.doctors);
+  };
   useEffect(() => {
-    fetchDoctors()
-  }, [])
+    fetchDoctors();
+  }, []);
   const navigate = useNavigate();
   const goToAdddoctors = () => {
-    navigate('/add-doctor');
+    navigate("/add-doctor");
   };
   const handleRemove = async (id) => {
-    const response = await axios.delete(`http://localhost:8082/api/admin/doctor/${id}`)
+    const response = await axios.delete(
+      `http://localhost:8082/api/admin/doctor/${id}`
+    );
     if (response.data.success) {
-      toast.success(response.data.message)
+      toast.success(response.data.message);
       fetchDoctors();
     }
-  }
+  };
   const columns = [
     {
-      name: 'Name',
-      selector: row => row.name,
+      name: "Name",
+      selector: (row) => row.name,
       style: {
-        padding: '0 5px',
+        padding: "0 5px",
       },
     },
     {
-      name: 'Education',
-      selector: row => row.education,
+      name: "Education",
+      selector: (row) => row.education,
       style: {
-        padding: '0 5px',
+        padding: "0 5px",
       },
     },
     {
-      name: 'Image',
-      selector: row => <img src={row.image} alt={row.title} style={{ height: "auto", width: "50px" }} />,
+      name: "Image",
+      selector: (row) => (
+        <img
+          src={`http://localhost:8082/uploads/${row.image}`}
+          alt={row.title}
+          style={{ height: "auto", width: "50px" }}
+        />
+      ),
       style: {
-        padding: '0 5px',
+        padding: "0 5px",
       },
     },
     {
-      name: 'Email',
-      selector: row => row.email,
+      name: "Email",
+      selector: (row) => row.email,
       style: {
-        padding: '0 5px',
+        padding: "0 5px",
       },
     },
     {
-      name: 'Phone',
-      selector: row => row.phone,
+      name: "Phone",
+      selector: (row) => row.phone,
       style: {
-        padding: '0 5px',
+        padding: "0 5px",
       },
     },
     {
-      name: 'Gender',
-      selector: row => row.gender,
+      name: "Gender",
+      selector: (row) => row.gender,
       style: {
-        padding: '0 5px',
+        padding: "0 5px",
       },
     },
     {
-      name: 'Actions',
+      name: "Actions",
       style: {
-        padding: '5px',
+        padding: "5px",
       },
-      cell: row => (
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      cell: (row) => (
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div className="contact-button">
             <Link to={`/update-doctor/${row._id}`}>
-              <div className="tick">
-                ✔️
-              </div>
+              <div className="tick">✔️</div>
             </Link>
             <div className="cross" onClick={() => handleRemove(row._id)}>
               ❌
@@ -95,7 +101,7 @@ const Doctors = () => {
         <div className="blue-nav">
           <FaRegCircleUser className="user" />
         </div>
-        
+
         <div className="box">
           <h2>Welcome To Doctor Page</h2>
         </div>
@@ -106,15 +112,9 @@ const Doctors = () => {
           </button>
         </div>
 
-
-        <DataTable
-          columns={columns}
-          data={data}
-          pagination
-        />
-
+        <DataTable columns={columns} data={data} pagination />
       </div>
     </div>
   );
-}
+};
 export default Doctors;
