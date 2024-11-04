@@ -21,7 +21,7 @@ import UpdateService from './pages/services/UpdateService';
 import ForgotPassword from './pages/forgot/ForgotPassword';
 
 
-// import '.pages/img.jpg.jpg';
+
 const ProtectedRoute = ({ element }) => {
   const token=localStorage.getItem("token")
   return token? element : <Navigate to="/" />;

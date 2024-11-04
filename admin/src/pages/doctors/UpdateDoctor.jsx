@@ -56,7 +56,7 @@ const UpdateDoctor = () => {
         }
     };
 
-    const { name, email, phone, gender, education } = formData;
+    const { name, email, phone, gender, education, image } = formData;
 
     return (
         <div style={{ marginLeft: "200px" }}>
@@ -124,6 +124,20 @@ const UpdateDoctor = () => {
                             <label>Female</label>
                         </label>
                     </div>
+                    <div className="form-group">
+                        <label htmlFor="image">Image URL:</label>
+                        <input
+                            placeholder="Enter Image URL"
+                            type="text"
+                            id="image"
+                            name="image"
+                            value={image}
+                            onChange={handleChange}
+                            required
+                            style={{ width: "250px", height: "50px" }}
+                        />
+                    </div>
+                    
                     <button type="submit" style={{ width: "250px", backgroundColor: '#020249' }}>Submit</button>
                 </form>
             </div>

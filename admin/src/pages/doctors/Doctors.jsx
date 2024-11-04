@@ -42,7 +42,7 @@ const Doctors = () => {
     },
     {
       name: 'Image',
-      selector: row => <img src={row.image} alt={row.title} style={{ height: "auto", width: "50px" }} />,
+      selector: row => <img src={`http://localhost:8082/uploads/${row.image}`} alt={row.title} style={{ height: "auto", width: "50px" }} />,
       style: {
         padding: '0 5px',
       },

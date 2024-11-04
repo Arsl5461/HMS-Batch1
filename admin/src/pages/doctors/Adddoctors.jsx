@@ -11,9 +11,9 @@ const AddDoctors = () => {
         phone:"",
         gender:"",
         education: '',
-        image: "",
+        image: "null",
     });
-const navigate=useNavigate();
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
@@ -26,9 +26,23 @@ const navigate=useNavigate();
     const handleFileChange = (e) => {
         setFormData({ ...formData, image: e.target.files[0] });
     };
+     
+    const newFormData=new FormData();
+    newFormData.append("name", formData.name);
+    newFormData.append("email", formData.email);
+    newFormData.append("phone", formData.phone);
+    newFormData.append("gender", formData.gender);
+    newFormData.append("education", formData.education);
+    newFormData.append("image", formData.image);
+ 
+    const navigate=useNavigate();
     const handleSubmit = async(e)=> {
         e.preventDefault();
-        const response=await axios.post("http://localhost:8082/api/admin/doctor",formData)
+        const response=await axios.post("http://localhost:8082/api/admin/doctor",newFormData,{
+            headers:{
+                'Content-Type': 'multipart/form-data'
+            }
+        })
       if(response.data.success){
         toast.success(response.data.message);
         navigate("/doctors")
@@ -38,7 +52,7 @@ const navigate=useNavigate();
             phone:"",
             gender:"",
             education: '',
-            image: "",
+            image: "null",
           });
       }
       else{
@@ -130,7 +144,7 @@ const navigate=useNavigate();
                             </label>
                         </div>
                     </div>
-                    {/* <div className="form-group">
+                    <div className="form-group">
                         <label htmlFor="image">Choose Image:</label>
                         <input
                             type="file"
@@ -141,7 +155,7 @@ const navigate=useNavigate();
                             required
                             style={{ width: "250px" }} 
                         />
-                    </div> */}
+                    </div>
                     <button type="submit" style={{ width: "250px", backgroundColor: '#020249'}}>Submit</button>
                 </form>
             </div>
