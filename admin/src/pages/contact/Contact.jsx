@@ -8,7 +8,7 @@ import {useNavigate } from 'react-router-dom';
 const Contact = () => {
   const [data, setData] = useState([]);
   const fetchContact = async () => {
-    const response = await axios.get("http://localhost:8082/api/admin/contact");
+    const response = await axios.get(`${REACT_APP_BASE_URL}/contact`);
     debugger;
         setData(response.data.contacts);
     };
@@ -17,8 +17,8 @@ const Contact = () => {
   }, []);
 
   const handleRemove = async (id) => {
-    const response = await axios.delete(
-      `http://localhost:8082/api/admin/contact/${id}`
+    const response = await axios.delete
+      (`${REACT_APP_BASE_URL}/contact/${id}`
     );
     if (response.data.success) {
       toast.success(response.data.message);

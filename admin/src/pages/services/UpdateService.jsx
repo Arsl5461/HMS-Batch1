@@ -16,7 +16,7 @@ const UpdateService = () => {
     const navigate = useNavigate();
 
     const fetchService = async () => {
-        const response = await axios.get(`http://localhost:8082/api/admin/service/${params.id}`);
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/service/${params.id}`);
         if (response.data.success) {
             const serviceData = response.data.service;
             setService(serviceData);
@@ -41,7 +41,7 @@ const UpdateService = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:8082/api/admin/service/${params.id}`, formData);
+            const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/service/${params.id}`, formData);
             if (response.data.success) {
                 toast.success(response.data.message);
                 navigate("/services");

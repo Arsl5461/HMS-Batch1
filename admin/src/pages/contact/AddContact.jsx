@@ -24,7 +24,7 @@ const AddContact = () => {
 
     const handleSubmit =async (e) => {
         e.preventDefault();
-        const response=await axios.post("http://localhost:8082/api/admin/contact", formData)
+        const response=await axios.post(`${process.env.REACT_APP_BASE_URL}/contact`, formData)
         if (response.data.success) {
             toast.success(response.data.message);
             navigate("/contact")

@@ -25,7 +25,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios.post("http://localhost:8082/api/admin/user/login", formData)
+        const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/login`, formData)
         console.log(response);
         if (response.data.success) {
             toast.success(response.data.message)

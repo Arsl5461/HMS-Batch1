@@ -28,7 +28,7 @@ const ForgotPassword = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await axios.post("http://localhost:8082/api/admin/user/forgot", formData);
+        const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/forgot`, formData);
         console.log(response);
         if (response.data.success) {
             toast.success(response.data.message);
@@ -40,7 +40,7 @@ const ForgotPassword = () => {
 
     const handleOtp = async (e) => {
         e.preventDefault();
-        const response = await axios.post("http://localhost:8082/api/admin/user/verifyotp", formData);
+        const response = await axios.post(`${process.env.REACT_APP_BASE_URL}/user/verifyotp`, formData);
         if (response.data.success) {
             toast.success(response.data.message);
             setShowPasswordField(true);
@@ -51,7 +51,7 @@ const ForgotPassword = () => {
 
     const handleUpdatePassword = async (e) => {
         e.preventDefault();
-        const response = await axios.put("http://localhost:8082/api/admin/user/updatepassword", formData);
+        const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/user/updatepassword`, formData);
         if (response.data.success) {
             toast.success(response.data.message);
             navigate("/"); // Navigate to login or another page after successful password update

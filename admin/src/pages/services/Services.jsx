@@ -9,8 +9,7 @@ const Services = () => {
   const [data, setServices] = useState([]);
   const fetchServices = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:8082/api/admin/service"
+      const response = await axios.get(`${REACT_APP_BASE_URL}/service`
       );
       if (response.data.success) {
         setServices(response.data.services);
@@ -32,8 +31,8 @@ const Services = () => {
 
   const handleRemove = async (id) => {
     try {
-      const response = await axios.delete(
-        `http://localhost:8082/api/admin/service/${id}`
+      const response = await axios.delete
+        (`${process.env.REACT_APP_BASE_URL}/admin/service/${id}`
       );
       if (response.data.success) {
         toast.success(response.data.message);
@@ -72,7 +71,8 @@ const Services = () => {
       name: "Image",
       selector: (row) => (
         <img
-          src={`http://localhost:8082/uploads/${row.image}`}
+          src= {`${process.env.REACT_APP_BASE_URL}/uploads/${row.image}`}
+
           alt={row.title}
           style={{ height: "auto", width: "50px" }}
         />

@@ -36,8 +36,8 @@ const AddDoctors = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post(
-      "http://localhost:8082/api/admin/doctor",
+    const response = await axios.post
+      (`${REACT_APP_BASE_URL}/doctor`,
       newFormData
     );
     if (response.data.success) {

@@ -17,7 +17,7 @@ const UpdateDoctor = () => {
     });
     const navigate = useNavigate();
     const fetchDoctor = async () => {
-        const response = await axios.get(`http://localhost:8082/api/admin/doctor/${params.id}`);
+        const response = await axios.get`${process.env.REACT_APP_BASE_URL}/doctor/${params.id}`
         if (response.data.success) {
             const doctorData = response.data.doctor;
             setDoctor(doctorData);
@@ -44,7 +44,7 @@ const UpdateDoctor = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`http://localhost:8082/api/admin/doctor/${params.id}`, formData);
+            const response = await axios.put(`${process.env.REACT_APP_BASE_URL}/doctor/${params.id}`, formData);
             if (response.data.success) {
                 toast.success(response.data.message);
                 navigate("/doctors")

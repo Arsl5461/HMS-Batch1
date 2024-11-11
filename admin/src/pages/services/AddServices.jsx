@@ -26,7 +26,7 @@ const AddServices = () => {
 const navigate=useNavigate();
     const handleSubmit = async(e) => {
         e.preventDefault();
-        const response=await axios.post("http://localhost:8082/api/admin/service",newFormData,{
+        const response=await axios.post(`${process.env.REACT_APP_BASE_URL}/service`,newFormData,{
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

@@ -1,53 +1,67 @@
-import React,{useState,useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FaUserDoctor } from "react-icons/fa6";
 import { FaRegUser } from "react-icons/fa";
 import { CiViewTimeline } from "react-icons/ci";
 import { IoMdContact } from "react-icons/io";
-import axios from 'axios';
+import axios from "axios";
 
 const Dashboard = () => {
-  const [dashboardCount,setDashboardCount]=useState({})
-  const fetchCount=async()=>{
-    const response=await axios.get("http://localhost:8082/api/admin/dashboard")
-    setDashboardCount(response.data.count)
-  }
-  useEffect(()=>{
-    fetchCount()
-  },[])
+  const [dashboardCount, setDashboardCount] = useState({});
+  const fetchCount = async () => {
+    const response = await axios.get(`${REACT_APP_BASE_URL}/dashboard`);
+    setDashboardCount(response.data.count);
+  };
+  useEffect(() => {
+    fetchCount();
+  }, []);
   return (
     <>
-      <h1 style={{ marginLeft: "230px", marginTop:"40px" }}>Dashboard</h1>
+      <h1 style={{ marginLeft: "230px", marginTop: "40px" }}>Dashboard</h1>
       <div className="flex">
         <Link to="/doctors">
-        <div class="card1"> <div class="icon"><FaUserDoctor /></div>
-          <hr />
-          <h2>{dashboardCount.doctors}</h2>
-          <p>Total Doctors</p>
-        </div>
+          <div class="card1">
+            {" "}
+            <div class="icon">
+              <FaUserDoctor />
+            </div>
+            <hr />
+            <h2>{dashboardCount.doctors}</h2>
+            <p>Total Doctors</p>
+          </div>
         </Link>
-        <div class="card2"> <div class="icon"><FaRegUser /></div>
+        <div class="card2">
+          {" "}
+          <div class="icon">
+            <FaRegUser />
+          </div>
           <hr />
-          <h2>17 </h2>
+          <h2>{dashboardCount.patients}</h2>
           <p>Total Patients</p>
         </div>
-        <div class="card3"> <div class="icon"><CiViewTimeline /></div>
+        <div class="card3">
+          {" "}
+          <div class="icon">
+            <CiViewTimeline />
+          </div>
           <hr />
-          <h2>12</h2>
+          <h2>{dashboardCount.services}</h2>
           <p>Total Services</p>
         </div>
         <Link to={"/contact"}>
-        <div class="card4"> <div class="icon"><IoMdContact /></div>
-          <hr />
-          <h2>{dashboardCount.contacts}</h2>
-          <p>Total Contact</p>
-        </div>
+          <div class="card4">
+            {" "}
+            <div class="icon">
+              <IoMdContact />
+            </div>
+            <hr />
+            <h2>{dashboardCount.contacts}</h2>
+            <p>Total Contact</p>
+          </div>
         </Link>
       </div>
     </>
-  )
+  );
+};
 
-
-}
-
-export default Dashboard
+export default Dashboard;
