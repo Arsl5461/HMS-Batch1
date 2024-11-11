@@ -22,7 +22,7 @@ const onChange=(e)=>{
 }
 const onSubmit=async(e)=>{
 e.preventDefault();
-const response=await axios.post("http://localhost:8082/api/admin/contact",formData)
+const response=await axios.post(`${process.env.REACT_APP_BASE_URL}/contact`,formData)
 if(response.data.success){
   setFormData({
     name:"",
