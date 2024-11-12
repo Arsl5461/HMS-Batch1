@@ -2,7 +2,6 @@ const Contact = require("../models/contact.model")
 
 exports.store = async (req, res) => {
     try {
-        req.body.image=req.file.filename;
         const contact = await Contact.create(req.body);
         res.json({ messsage: "contact Created Successfully", status: 200, success: true, contact })
     }
