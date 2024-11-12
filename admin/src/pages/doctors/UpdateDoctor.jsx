@@ -17,7 +17,7 @@ const UpdateDoctor = () => {
     });
     const navigate = useNavigate();
     const fetchDoctor = async () => {
-        const response = await axios.get`${process.env.REACT_APP_BASE_URL}/doctor/${params.id}`
+        const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/doctor/${params.id}`)
         if (response.data.success) {
             const doctorData = response.data.doctor;
             setDoctor(doctorData);
