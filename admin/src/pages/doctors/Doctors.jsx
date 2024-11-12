@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 const Doctors = () => {
   const [data, setData] = useState([]);
   const fetchDoctors = async () => {
-    const response = await axios.get(`${REACT_APP_BASE_URL}/doctor`);
+    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/doctor`);
     setData(response.data.doctors);
   };
   useEffect(() => {
@@ -20,7 +20,7 @@ const Doctors = () => {
   };
   const handleRemove = async (id) => {
     const response = await axios.delete
-      (`${REACT_APP_BASE_URL}/doctor/${id}`
+      (`${process.env.REACT_APP_BASE_URL}/doctor/${id}`
     );
     if (response.data.success) {
       toast.success(response.data.message);
@@ -46,14 +46,14 @@ const Doctors = () => {
       name: "Image",
       selector: (row) => (
         <img
-          src={`${process.env.REACT_APP_BASE_URL}/uploads/${row.image}`}
+          src={`${process.env.REACT_APP_FILE_URL}uploads/${row.image}`}
           alt={row.title}
           style={{ height: "auto", width: "50px" }}
         />
       ),
       style: {
         padding: "0 5px",
-      },
+      }
     },
     {
       name: "Email",

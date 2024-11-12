@@ -8,8 +8,7 @@ import {useNavigate } from 'react-router-dom';
 const Contact = () => {
   const [data, setData] = useState([]);
   const fetchContact = async () => {
-    const response = await axios.get(`${REACT_APP_BASE_URL}/contact`);
-    debugger;
+    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/contact`);
         setData(response.data.contacts);
     };
   useEffect(() => {
@@ -18,7 +17,7 @@ const Contact = () => {
 
   const handleRemove = async (id) => {
     const response = await axios.delete
-      (`${REACT_APP_BASE_URL}/contact/${id}`
+      (`${process.env.REACT_APP_BASE_URL}/contact/${id}`
     );
     if (response.data.success) {
       toast.success(response.data.message);
@@ -79,7 +78,7 @@ const Contact = () => {
             <div className="tick" onClick={goToAddContact}>
               ✔️
             </div>
-            <div className="cross" onClick={() => handleRemove(row.id)}>
+            <div className="cross" onClick={() => handleRemove(row._id)}>
               ❌
             </div>
           </div>

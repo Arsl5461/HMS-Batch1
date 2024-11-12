@@ -9,7 +9,7 @@ import axios from "axios";
 const Dashboard = () => {
   const [dashboardCount, setDashboardCount] = useState({});
   const fetchCount = async () => {
-    const response = await axios.get(`${REACT_APP_BASE_URL}/dashboard`);
+    const response = await axios.get(`${process.env.REACT_APP_BASE_URL}/dashboard`);
     setDashboardCount(response.data.count);
   };
   useEffect(() => {
