@@ -47,7 +47,7 @@ exports.forgot = async (req, res) => {
         const otpCode = Math.floor(100000 + Math.random() * 900000);
         user.otpCode = otpCode;
         await user.save();
-        await sendEmail(user.email,`THis is your verification code ${user.otpCode}`,"OTP FOR FORGET PASSWORD");
+        // await sendEmail(user.email,`THis is your verification code ${user.otpCode}`,"OTP FOR FORGET PASSWORD");
         return res.json({ success: true, status: 200, message: "OTP Generated Successfully" })
     }
     catch (err) {

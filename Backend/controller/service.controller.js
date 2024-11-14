@@ -17,7 +17,7 @@ exports.store = async (req, res) => {
 
 exports.index = async (req, res) => {
   try {
-    const services = await Services.find();
+    const services = await Services.find().populate('doctorId');
     return res.json({
       message: "Services Fetch Successfully",
       status: 200,

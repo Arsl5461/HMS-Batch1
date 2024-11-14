@@ -82,6 +82,13 @@ const Services = () => {
       },
     },
     {
+      name: "Doctor Name",
+      selector: (row) => row.doctorId.name,
+      style: {
+        padding: "5px",
+      },
+    },
+    {
       name: "Actions",
       style: {
         padding: "5px",
