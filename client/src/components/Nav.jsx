@@ -4,34 +4,31 @@ import "./nav.css";
 import { IoCaretDownOutline } from "react-icons/io5";
 
 const Nav = () => {
+  const [activeLink, setActiveLink] = useState(null);
   const [color, setColor] = useState("white");
 
-  return (
+  return ( 
     <div className="index">
       <ul class="bar text-light ">
-        <li class="grand8 ">
-          <Link
-            id="Summer Donate"
-            to="/Donate"
-            style={{ color: color, textDecoration: "none" }}
-            onMouseOver={() => setColor("red")}
-            onMouseOut={() => setColor("white")}
-          >
-            Donate Now
-          </Link>
-        </li>
-        <li class="grand ">
-          <Link to="" style={{ color: "white", textDecoration: "none" }}>
-            {" "}
-            Patient Portal
-          </Link>
-        </li>
-        <li class="grand2 ">
-          <Link to="" style={{ color: "white", textDecoration: "none" }}>
-            {" "}
-            Book Appointment
-          </Link>
-        </li>
+      <li className="grand8">
+            <Link
+              id="Summer Donate"
+              to="/Donate"
+              className={`nav-link ${activeLink === "donate" ? "active" : ""}`}
+              onClick={() => setActiveLink("donate")}
+            >
+              Donate Now
+            </Link>
+          </li>
+          <li className="grand2">
+            <Link
+              to="/Appointment"
+              className={`nav-link ${activeLink === "appointment" ? "active" : ""}`}
+              onClick={() => setActiveLink("appointment")}
+            >
+              Book Appointment
+            </Link>
+          </li>
         <div class="dropdown">
           <button class="dropbtn">
             Careers
@@ -40,7 +37,7 @@ const Nav = () => {
           <div class="dropdown-content">
             <Link to="/Vacent">Vacant Position</Link>
             <Link to="/Program">PG Programs</Link>
-            <Link to="/">Apply Online</Link>
+            <Link to="/ApplyOnline">Apply Online</Link>
           </div>
         </div>
       </ul>

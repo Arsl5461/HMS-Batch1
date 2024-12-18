@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
-import { FaLocationArrow } from "react-icons/fa";
-import { FaPhoneSquare } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { FaPhoneAlt } from "react-icons/fa";
 import { FaMailBulk } from "react-icons/fa";
 import "./contact.css"
 import {toast} from "react-toastify"
@@ -42,12 +42,12 @@ navigate("/")
     <h1>Contact Us</h1>
     <div className="cardz">
       <div className="cadz">
-      <div className="icn"><FaLocationArrow /></div>
+      <div className="icn"><FaLocationDot /></div>
       <h2>Address</h2>
       <p>Shalamar Link Road,Lahore, Pakistan</p>
       </div>
       <div className="cadz">
-      <div className="icn"><FaPhoneSquare /></div>
+      <div className="icn"><FaPhoneAlt /></div>
       <h2>Phone</h2>
       <p>General Inquiries: 042-111 205 205</p>
       <p>+92 42 3681 7857 <br />+92 42 3682 3712 <br /><br />Complaint Cell: 03354617958</p>

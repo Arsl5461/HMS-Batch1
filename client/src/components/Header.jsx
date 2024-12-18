@@ -17,13 +17,13 @@ const header = () => {
             <Link class="nav-link active text-dark fw-bold fs-6 text" aria-current="page" to="/">Home</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark fw-bold fs-6 text" href="#" >About us</a>
+            <Link class="nav-link text-dark fw-bold fs-6 text" to="/About" >About us</Link>
           </li>
           <li class="nav-item"> 
             <Link class="nav-link text-darke fw-bold fs-6 text" to="/Contact" > Contact Us</Link>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-dark fw-bold fs-6 text" href="#" > Health Centre</a>
+            <Link class="nav-link text-dark fw-bold fs-6 text" to="/H" >Hospital Facilities</Link>
           </li>
 
 

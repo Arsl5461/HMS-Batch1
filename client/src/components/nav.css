@@ -2,3 +2,7 @@ li Link{
     color: white!important;
     text-decoration: none;
 }
+
+  .nav-link:hover {
+    color: red; /* Optional: slightly different hover color */
+  }
